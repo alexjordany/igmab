@@ -2,6 +2,8 @@ package entidades;
 import java.util.Date;
 
 
+
+
 /**
  * La asistencia es el marcado del estudiante para empezar a trabajar y para
  * terminar su trabajo en el centro.
