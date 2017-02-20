@@ -169,6 +169,17 @@
 				<li class="dropdown">
 					<a href="#" class="dropdown-toggle">
 						<i class="fa fa-bar-chart-o"></i>
+						<span class="hidden-xs">Gestión Psicologo</span>
+					</a>
+					<ul class="dropdown-menu">
+						<li><a class="ajax-link" href="ajax/psicologo.jsp">Agregar psicologo</a></li>
+					
+					</ul>
+				</li>
+				
+				<li class="dropdown">
+					<a href="#" class="dropdown-toggle">
+						<i class="fa fa-bar-chart-o"></i>
 						<span class="hidden-xs">Gestión Paciente</span>
 					</a>
 					<ul class="dropdown-menu">
