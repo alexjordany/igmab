@@ -4,7 +4,7 @@
 <html lang="en">
 	<head>
 		<meta charset="utf-8">
-		<title>DevOOPS</title>
+		<title>IGMAB</title>
 		<meta name="description" content="description">
 		<meta name="author" content="DevOOPS">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -51,7 +51,7 @@
 	<div class="container-fluid expanded-panel">
 		<div class="row">
 			<div id="logo" class="col-xs-12 col-sm-2">
-				<a href="index.html">IGMAB</a>
+				<a href="index.jsp">IGMAB</a>
 			</div>
 			<div id="top-panel" class="col-xs-12 col-sm-10">
 				<div class="row">
@@ -160,7 +160,7 @@
 					</a>
 					<ul class="dropdown-menu">
 						<li><a class="ajax-link" href="ajax/Pariente.jsp">Agregar pariente</a></li>
-						<li><a class="ajax-link" href="ajax/charts_flot.html">Flot Charts</a></li>
+						<li><a class="ajax-link" href="ajax/HistoriaClinica.jsp">Historia Clinica</a></li>
 						<li><a class="ajax-link" href="ajax/charts_google.html">Google Charts</a></li>
 						<li><a class="ajax-link" href="ajax/charts_morris.html">Morris Charts</a></li>
 						<li><a class="ajax-link" href="ajax/charts_coindesk.html">CoinDesk realtime</a></li>
