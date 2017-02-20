@@ -172,7 +172,7 @@
 						<span class="hidden-xs">Gestión Paciente</span>
 					</a>
 					<ul class="dropdown-menu">
-						<li><a class="ajax-link" href="paciente.jsp">Agregar paciente</a></li>
+						<li><a class="ajax-link" href="ajax/paciente.jsp">Agregar paciente</a></li>
 					</ul>
 				</li>
 				<li class="dropdown">
