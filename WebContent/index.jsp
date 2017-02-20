@@ -156,7 +156,7 @@
 				<li class="dropdown">
 					<a href="#" class="dropdown-toggle">
 						<i class="fa fa-bar-chart-o"></i>
-						<span class="hidden-xs">Gestion Pariente</span>
+						<span class="hidden-xs">Gestión Pariente</span>
 					</a>
 					<ul class="dropdown-menu">
 						<li><a class="ajax-link" href="ajax/Pariente.jsp">Agregar pariente</a></li>
@@ -164,6 +164,15 @@
 						<li><a class="ajax-link" href="ajax/charts_google.html">Google Charts</a></li>
 						<li><a class="ajax-link" href="ajax/charts_morris.html">Morris Charts</a></li>
 						<li><a class="ajax-link" href="ajax/charts_coindesk.html">CoinDesk realtime</a></li>
+					</ul>
+				</li>
+				<li class="dropdown">
+					<a href="#" class="dropdown-toggle">
+						<i class="fa fa-bar-chart-o"></i>
+						<span class="hidden-xs">Gestión Paciente</span>
+					</a>
+					<ul class="dropdown-menu">
+						<li><a class="ajax-link" href="paciente.jsp">Agregar paciente</a></li>
 					</ul>
 				</li>
 				<li class="dropdown">

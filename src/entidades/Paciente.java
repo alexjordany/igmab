@@ -8,6 +8,8 @@ import java.util.Date;
  * @created 12-Feb-2017 11:17:17 AM
  */
 public class Paciente {
+	
+	private int pacienteID;
 
 	/**
 	 * Primer apellido del paciente.
@@ -129,6 +131,20 @@ public class Paciente {
 
 	}
 	
+
+	public int getPacienteID() {
+		return pacienteID;
+	}
+
+
+
+
+	public void setPacienteID(int pacienteID) {
+		this.pacienteID = pacienteID;
+	}
+
+
+
 
 	public String getApellido1() {
 		return apellido1;
