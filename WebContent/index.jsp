@@ -178,9 +178,10 @@
 				<li class="dropdown">
 					<a href="#" class="dropdown-toggle">
 						<i class="fa fa-table"></i>
-						 <span class="hidden-xs">Tables</span>
+						 <span class="hidden-xs">Gestión Citas</span>
 					</a>
 					<ul class="dropdown-menu">
+						<li><a class="ajax-link" href="ajax/citas.jsp">Citas</a></li>
 						<li><a class="ajax-link" href="ajax/tables_simple.html">Simple Tables</a></li>
 						<li><a class="ajax-link" href="ajax/tables_datatables.html">Data Tables</a></li>
 						<li><a class="ajax-link" href="ajax/tables_beauty.html">Beauty Tables</a></li>
@@ -213,11 +214,11 @@
 				<li class="dropdown">
 					<a href="#" class="dropdown-toggle">
 						<i class="fa fa-list"></i>
-						 <span class="hidden-xs">Pages</span>
+						 <span class="hidden-xs">Usuarios</span>
 					</a>
 					<ul class="dropdown-menu">
-						<li><a href="ajax/page_login.html">Login</a></li>
-						<li><a href="ajax/page_register.html">Register</a></li>
+						<li><a href="ajax/login.html">Login</a></li>
+						<li><a href="ajax/registro_usuarios.html">Registro</a></li>
 						<li><a id="locked-screen" class="submenu" href="ajax/page_locked.html">Locked Screen</a></li>
 						<li><a class="ajax-link" href="ajax/page_contacts.html">Contacts</a></li>
 						<li><a class="ajax-link" href="ajax/page_feed.html">Feed</a></li>

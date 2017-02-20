@@ -3,16 +3,21 @@ import java.util.Date;
 
 
 /**
- * La cita por asigar y a la que  debe asistir el paciente para ser atendido.
+ * La cita por asignar y a la que  debe asistir el paciente para ser atendido.
  * @author Gang of Seven
  * @version 1.0
  * @created 12-Feb-2017 11:17:16 AM
  */
 public class Cita {
-
+	
+	private int citaId;
 	/**
 	 * Según la asistencia, 1= asistió y 0= no asistió.
 	 */
+	
+	private int pacienteId;
+	
+	
 	private int asistencia;
 	/**
 	 * Fecha de la cita a agendar.
@@ -56,6 +61,26 @@ public class Cita {
 
 	}
 	
+	
+	public int getCitaId() {
+		return citaId;
+	}
+
+
+	public void setCitaId(int citaId) {
+		this.citaId = citaId;
+	}
+	
+	
+	public int getPacienteId() {
+		return pacienteId;
+	}
+
+
+	public void setPacienteId(int pacienteId) {
+		this.pacienteId = pacienteId;
+	}
+
 
 	public int getAsistencia() {
 		return asistencia;
