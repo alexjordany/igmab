@@ -1,9 +1,8 @@
 package datos;
+
 import java.sql.*;
 import java.util.ArrayList;
 import entidades.Pariente;
-
-import com.sun.corba.se.spi.orbutil.fsm.Guard.Result;
 
 public class DTPariente {
 	public ArrayList<Pariente> listaPaciente(){
@@ -50,7 +49,7 @@ public class DTPariente {
 		return listaPaciente;
 	}
 
-	////////Metodo para guardar/////
+	////////Método para guardar/////
 	public boolean guardarPariente(Pariente p){
 		int x= 0;
 		boolean g = false;
