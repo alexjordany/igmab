@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import entidades.Parentesco;
 
 public class DtParentesco {
-	public ArrayList<Parentesco> listaParentesco(){
+	public ArrayList<Parentesco> listaParentescos(){
 		ArrayList<Parentesco> listaParentesco = new ArrayList<Parentesco>();
 		String sql = ("SELECT * FROM igmab.Parentesco");
 		
@@ -23,6 +23,7 @@ public class DtParentesco {
 				Parentesco p = new Parentesco();
 				p.setParentescoID(rs.getInt("ParentescoID"));
 				p.setParentesco(rs.getString("Parentesco"));
+				listaParentesco.add(p);
 			
 			}
 			ps.close();
@@ -35,7 +36,7 @@ public class DtParentesco {
 	}
 	
 	////////Método para guardar/////
-	public boolean guardarPariente(Parentesco p){
+	public boolean guardarParentesco(Parentesco p){
 		int x= 0;
 		boolean g = false;
 	

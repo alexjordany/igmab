@@ -1,13 +1,13 @@
-<%@page import="entidades.Paciente"%>
+<%@page import="entidades.Parentesco"%>
 <%@page import="java.util.*"%>
-<%@page import="datos.DtPaciente"%>
+<%@page import="datos.DtParentesco"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <div class="row">
 	<div id="breadcrumb" class="col-md-12">
 		<ol class="breadcrumb">
-			<li><a href="#">Psicologo</a></li>
-			<li><a href="#">Gestión Psicologo</a></li>
+			<li><a href="#">Parentesco</a></li>
+			<li><a href="#">Gestión Parentesco</a></li>
 		</ol>
 	</div>
 </div>
@@ -16,7 +16,7 @@
 		<div id="frm-agrega" class="box">
 			<div class="box-header">
 				<div class="box-name">
-					<i class="fa fa-location-arrow"></i> <span>Agregar Psicologo</span>
+					<i class="fa fa-location-arrow"></i> <span>Agregar Parentesco</span>
 				</div>
 				<div class="box-icons">
 					<a class="collapse-link"> <i class="fa fa-chevron-up"></i>
@@ -28,57 +28,17 @@
 			</div>
 			<div class="box-content no-padding">
 				<div class="row">
-					<form class="form-horizontal" method="post"	action="./SL_Actor">
+					<form class="form-horizontal" method="post"	action="./SlParentesco">
 						<div class="col-sm-6">
 							<h5 class="page-header">Datos</h5>
 							<div class="form-group">
-								<label class="col-sm-6 control-label">Carnet:</label>
+								<label class="col-sm-6 control-label">Tipo de parentesco:</label>
 								<div class="col-sm-6">
 									<input type="text" class="form-control"
-										placeholder="Número de celular" data-toggle="tooltip"
-										data-placement="bottom" id="carnet"
-										name="carnet" title="El número de celular no es requerido"
+										placeholder="Ej: padre, madre" data-toggle="tooltip"
+										data-placement="bottom" id="parentesco"
+										name="parentesco" title="El tipo de parentesco es requerido" required
 										 />
-								</div>
-							</div>
-							<div class="form-group">
-								<label class="col-sm-6 control-label">Primer nombre:</label>
-								<div class="col-sm-6">
-									<input type="text" class="form-control"
-										placeholder="Primer nombre" data-toggle="tooltip"
-										data-placement="bottom" id="nombre1"
-										name="nombre1" title="El primer nombre es requerido"
-										required />
-								</div>
-							</div>
-							<div class="form-group">
-								<label class="col-sm-6 control-label">Segundo nombre:</label>
-								<div class="col-sm-6">
-									<input type="text" class="form-control"
-										placeholder="Segundo nombre" data-toggle="tooltip"
-										data-placement="bottom" id="nombre2"
-										name="nombre2" title="El segundo nombre es requerido"
-										required />
-								</div>
-							</div>
-							<div class="form-group">
-								<label class="col-sm-6 control-label">Primer apellido:</label>
-								<div class="col-sm-6">
-									<input type="text" class="form-control"
-										placeholder="Primer nombre" data-toggle="tooltip"
-										data-placement="bottom" id="apellido1"
-										name="apellido1" title="El primer apellido es requerido"
-										required />
-								</div>
-							</div>
-							<div class="form-group">
-								<label class="col-sm-6 control-label">Segundo apellido:</label>
-								<div class="col-sm-6">
-									<input type="text" class="form-control"
-										placeholder="Segundo apellido" data-toggle="tooltip"
-										data-placement="bottom" id="apellido2"
-										name="apellido2" title="El segundo apellido es requerido"
-										required />
 								</div>
 							</div>
 
@@ -110,7 +70,7 @@
 			<div class="box-header">
 				<div class="box-name">
 					<i class="fa fa-location-arrow"></i> 
-					<span>Lista de Psicologos</span>
+					<span>Lista de Parentesco</span>
 				</div>
 				<div class="box-icons">
 					<a class="collapse-link"> <i class="fa fa-chevron-up"></i>
@@ -135,29 +95,23 @@
 					id="datatable-1">
 					<thead>
 						<tr>
-							<th>Carne</th>
-							<th>Nombre1</th>
-							<th>Nombre2</th>							<th>Nombre</th>
-							<th>Apellido1</th>
-							<th>Apellido2</th>
+							<th>Parentesco</th>
 						</tr>
 					</thead>
 					<tbody>
 					
 					<%
 					
-						DtPaciente dtp = new DtPaciente();
-						ArrayList<Paciente> listaPaciente = new ArrayList<Paciente>();
-						listaPaciente=dtp.listaPaciente();
+						DtParentesco dtp = new DtParentesco();
+						ArrayList<Parentesco> listaParentesco = new ArrayList<Parentesco>();
+						listaParentesco=dtp.listaParentescos();
 						
-						for(Paciente a : listaPaciente)
+						for(Parentesco p : listaParentesco)
 						{
 					%>
 					
 					<tr>
-						<td><%=a.getExpediente() %></td>
-						<td><%=a.getNombre1() %></td>
-						<td><%=a.getApellido1()%></td>
+						<td><%=p.getParentesco() %></td>
 					</tr>
 					
 					<% } %>
@@ -165,9 +119,7 @@
 					</tbody>
 					<tfoot>
 						<tr>
-							<th>Código</th>
-							<th>Nombre</th>
-							<th>Apellido</th>
+							<th>Parentesco</th>
 						</tr>
 					</tfoot>
 				</table>
