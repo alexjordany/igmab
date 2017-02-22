@@ -32,9 +32,9 @@ public class DTPsicologo {
 					Psicologo p = new Psicologo();
 					p.setCarnet(rs.getString("Carnet"));
 					p.setNombre1(rs.getString("Nombre1"));
-					p.setNombre1(rs.getString("Nombre2"));
-					p.setNombre1(rs.getString("Apellido1"));
-					p.setNombre1(rs.getString("Apellido2"));
+					p.setNombre2(rs.getString("Nombre2"));
+					p.setApellido1(rs.getString("Apellido1"));
+					p.setApellido2(rs.getString("Apellido2"));
 					
 					listaPsicologo.add(p);
 					
