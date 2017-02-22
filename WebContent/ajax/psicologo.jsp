@@ -160,15 +160,7 @@
 						<td><%=p.getNombre2() %></td>
 						<td><%=p.getApellido1() %></td>
 						<td><%=p.getApellido2() %></td>
-<%-- 						<% --%>
-<!--  						System.out.println("Carnet: "+p.getCarnet()); -->
-<!-- 						System.out.println("nombre1: "+p.getNombre1()); -->
-<!--  						System.out.println("nombre2: "+p.getNombre2()); -->
-<!--  						System.out.println("apellido1: "+p.getApellido1()); -->
-<!--  						System.out.println("apellido2: "+p.getApellido2()); -->
-						
-<%-- 						%> --%>
-						
+
 					</tr>
 					
 					<% } %>
