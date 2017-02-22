@@ -4,7 +4,7 @@ import java.sql.*;
 import java.util.ArrayList;
 import entidades.Pariente;
 
-public class DTPariente {
+public class DtPariente {
 	public ArrayList<Pariente> listaPaciente(){
 		ArrayList<Pariente> listaPaciente = new ArrayList<Pariente>();
 		String sql = ("SELECT * FROM igmab.Pariente");

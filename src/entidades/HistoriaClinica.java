@@ -8,6 +8,30 @@ package entidades;
  */
 public class HistoriaClinica {
 
+	
+	private int historiaClinicaId;
+	public int getHistoriaClinicaId() {
+		return historiaClinicaId;
+	}
+
+
+	public void setHistoriaClinicaId(int historiaClinicaId) {
+		this.historiaClinicaId = historiaClinicaId;
+	}
+
+
+	public int getPacienteId() {
+		return pacienteId;
+	}
+
+
+	public void setPacienteId(int pacienteId) {
+		this.pacienteId = pacienteId;
+	}
+
+
+	private int pacienteId;
+	
 	/**
 	 * Algún detalle que se haya escapado durante la solicitud de la información.
 	 */
