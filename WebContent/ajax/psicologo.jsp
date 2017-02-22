@@ -1,6 +1,6 @@
-<%@page import="entidades.Paciente"%>
+<%@page import="entidades.Psicologo"%>
 <%@page import="java.util.*"%>
-<%@page import="datos.DtPaciente"%>
+<%@page import="datos.DTPsicologo"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <div class="row">
@@ -35,9 +35,9 @@
 								<label class="col-sm-6 control-label">Carnet:</label>
 								<div class="col-sm-6">
 									<input type="text" class="form-control"
-										placeholder="Número de celular" data-toggle="tooltip"
+										placeholder="Número de carnet" data-toggle="tooltip"
 										data-placement="bottom" id="carnet"
-										name="carnet" title="El número de celular no es requerido"
+										name="carnet" title="El número de carnet es requerido"
 										 />
 								</div>
 							</div>
@@ -135,9 +135,9 @@
 					id="datatable-1">
 					<thead>
 						<tr>
-							<th>Carne</th>
+							<th>Carnet</th>
 							<th>Nombre1</th>
-							<th>Nombre2</th>							<th>Nombre</th>
+							<th>Nombre2</th>
 							<th>Apellido1</th>
 							<th>Apellido2</th>
 						</tr>
@@ -146,18 +146,20 @@
 					
 					<%
 					
-						DtPaciente dtp = new DtPaciente();
-						ArrayList<Paciente> listaPaciente = new ArrayList<Paciente>();
-						listaPaciente=dtp.listaPaciente();
+						DTPsicologo dtps= new DTPsicologo();
+						ArrayList<Psicologo> listaPsicologo = new ArrayList<Psicologo>();
+						listaPsicologo=dtps.psicologos();
 						
-						for(Paciente a : listaPaciente)
+						for(Psicologo p : listaPsicologo)
 						{
 					%>
 					
 					<tr>
-						<td><%=a.getExpediente() %></td>
-						<td><%=a.getNombre1() %></td>
-						<td><%=a.getApellido1()%></td>
+						<td><%=p.getCarnet() %></td>
+						<td><%=p.getNombre1() %></td>
+						<td><%=p.getNombre2() %></td>
+						<td><%=p.getApellido1() %></td>
+						<td><%=p.getApellido2() %></td>
 					</tr>
 					
 					<% } %>
@@ -165,9 +167,11 @@
 					</tbody>
 					<tfoot>
 						<tr>
-							<th>Código</th>
-							<th>Nombre</th>
-							<th>Apellido</th>
+							<th>Carnet</th>
+							<th>Nombre1</th>
+							<th>Nombre2</th>
+							<th>Apellido1</th>
+							<th>Apellido2</th>
 						</tr>
 					</tfoot>
 				</table>
