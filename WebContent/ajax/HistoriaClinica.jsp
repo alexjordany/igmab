@@ -1,3 +1,8 @@
+<%@page import="entidades.HistoriaClinica"%>
+<%@page import="java.util.*"%>
+<%@page import="datos.DtHistoriaClinica"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <div class="row">
 	<div id="breadcrumb" class="col-md-12">
 		<ol class="breadcrumb">
@@ -47,10 +52,139 @@
 								</select>
 							</div>
 						<div class="form-group">
-						<label class="col-sm-2 control-label" for="form-styles">Historia Clinica</label>
+						<label class="col-sm-2 control-label" for="form-styles">Motivo de consulta</label>
 						<div class="col-sm-10">
-								<textarea class="form-control" rows="5" id="wysiwig_full"></textarea>
+								<textarea class="form-control" rows="5" id="wysiwig_simple"></textarea>
 						</div>
+						
+					</div>
+					
+					<div class="form-group">
+						<label class="col-sm-2 control-label" for="form-styles">Historia del padecimiento</label>
+						<div class="col-sm-8">
+								<textarea class="form-control" rows="5" id="wysiwig_simple"></textarea>
+						</div>
+						
+					</div>
+					
+					<div class="form-group">
+						<label class="col-sm-2 control-label" for="form-styles">Expectativas</label>
+						<div class="col-sm-8">
+								<textarea class="form-control" rows="5" id="wysiwig_simple"></textarea>
+						</div>
+						
+					</div>
+					
+					<div class="form-group">
+						<label class="col-sm-2 control-label" for="form-styles">Antecedentes Heredo-Familiares</label>
+						<div class="col-sm-8">
+								<textarea class="form-control" rows="5" id="wysiwig_simple"></textarea>
+						</div>
+						
+					</div>
+					
+					<div class="form-group">
+						<label class="col-sm-2 control-label" for="form-styles">Antecedentes personales no patologicos</label>
+						<div class="col-sm-8">
+								<textarea class="form-control" rows="5" id="wysiwig_simple"></textarea>
+						</div>
+						
+					</div>
+					
+					<div class="form-group">
+						<label class="col-sm-2 control-label" for="form-styles">Antecedentes patologicos personales</label>
+						<div class="col-sm-8">
+								<textarea class="form-control" rows="5" id="wysiwig_simple"></textarea>
+						</div>
+						
+					</div>
+					
+					<div class="form-group">
+						<label class="col-sm-2 control-label" for="form-styles">Antecedentes patologicos familiares</label>
+						<div class="col-sm-8">
+								<textarea class="form-control" rows="5" id="wysiwig_simple"></textarea>
+						</div>
+						
+					</div>
+					
+					<div class="form-group">
+						<label class="col-sm-2 control-label" for="form-styles">Relacion con el nucleo familiar</label>
+						<div class="col-sm-8">
+								<textarea class="form-control" rows="5" id="wysiwig_simple"></textarea>
+						</div>
+						
+					</div>
+					
+					<div class="form-group">
+						<label class="col-sm-2 control-label" for="form-styles">Area escolar</label>
+						<div class="col-sm-10">
+								<textarea class="form-control" rows="5" id="wysiwig_simple"></textarea>
+						</div>
+						
+					</div>
+					
+					<div class="form-group">
+						<label class="col-sm-2 control-label" for="form-styles">Desarrollo social</label>
+						<div class="col-sm-8">
+								<textarea class="form-control" rows="5" id="wysiwig_simple"></textarea>
+						</div>
+						
+					</div>
+					
+					<div class="form-group">
+						<label class="col-sm-2 control-label" for="form-styles">Desarrollo laboral</label>
+						<div class="col-sm-8">
+								<textarea class="form-control" rows="5" id="wysiwig_simple"></textarea>
+						</div>
+						
+					</div>
+					
+					<div class="form-group">
+						<label class="col-sm-2 control-label" for="form-styles">Desarrollo sexual</label>
+						<div class="col-sm-8">
+								<textarea class="form-control" rows="5" id="wysiwig_simple"></textarea>
+						</div>
+						
+					</div>
+					
+					<div class="form-group">
+						<label class="col-sm-2 control-label" for="form-styles">Desarrollo conyugal, pareja</label>
+						<div class="col-sm-8">
+								<textarea class="form-control" rows="5" id="wysiwig_simple"></textarea>
+						</div>
+						
+					</div>
+					
+					<div class="form-group">
+						<label class="col-sm-2 control-label" for="form-styles">Desarrollo espiritual</label>
+						<div class="col-sm-10">
+								<textarea class="form-control" rows="5" id="wysiwig_simple"></textarea>
+						</div>
+						
+					</div>
+					
+					<div class="form-group">
+						<label class="col-sm-2 control-label" for="form-styles">Aspecto y conducta general</label>
+						<div class="col-sm-8">
+								<textarea class="form-control" rows="5" id="wysiwig_simple"></textarea>
+						</div>
+						
+					</div>
+					
+					<div class="form-group">
+						<label class="col-sm-2 control-label" for="form-styles">Alguna otra cosa que quiera decir y este relacionadacon el problema del niño/a</label>
+						<div class="col-sm-8">
+								<textarea class="form-control" rows="5" id="wysiwig_simple"></textarea>
+						</div>
+						
+					</div>
+					
+					<div class="form-group">
+						<label class="col-sm-2 control-label" for="form-styles">Impresion diagnostica</label>
+						<div class="col-sm-8">
+								<textarea class="form-control" rows="5" id="wysiwig_simple"></textarea>
+						</div>
+						
 					</div>
 						
 					</div>

@@ -210,6 +210,16 @@
 				</li>
 				<li class="dropdown">
 					<a href="#" class="dropdown-toggle">
+						<i class="fa fa-bar-chart-o"></i>
+						<span class="hidden-xs">Gestión Parentesco</span>
+					</a>
+					<ul class="dropdown-menu">
+						<li><a class="ajax-link" href="ajax/parentesco.jsp">Agregar parentesco</a></li>
+					
+					</ul>
+				</li>
+				<li class="dropdown">
+					<a href="#" class="dropdown-toggle">
 						<i class="fa fa-pencil-square-o"></i>
 						 <span class="hidden-xs">Forms</span>
 					</a>
