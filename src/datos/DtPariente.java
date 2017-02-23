@@ -5,8 +5,8 @@ import java.util.ArrayList;
 import entidades.Pariente;
 
 public class DtPariente {
-	public ArrayList<Pariente> listaPaciente(){
-		ArrayList<Pariente> listaPaciente = new ArrayList<Pariente>();
+	public ArrayList<Pariente> listaPariente(){
+		ArrayList<Pariente> listaPariente = new ArrayList<Pariente>();
 		String sql = ("SELECT * FROM igmab.Pariente");
 		
 		try{
@@ -46,7 +46,7 @@ public class DtPariente {
 		catch(Exception e){
 			System.err.println("Datos: Error "+e.getMessage());
 		}
-		return listaPaciente;
+		return listaPariente;
 	}
 
 	////////Método para guardar/////

@@ -387,7 +387,7 @@
 		$('#btn-agrega-abrir').click(function() 
 		{
         	$('#frm-agrega').fadeIn();
-        });
+        });      
 		$('#cancelar_nuevo').click(function() 
 		{
 		    $('#frm-agrega').fadeOut();

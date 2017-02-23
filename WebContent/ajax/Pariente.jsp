@@ -1,3 +1,9 @@
+<%@page import="entidades.Pariente"%>
+<%@page import="java.util.*"%>
+<%@page import="datos.DtPariente"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+	
 <div class="row">
 	<div id="breadcrumb" class="col-md-12">
 		<ol class="breadcrumb">
@@ -101,7 +107,7 @@
 							<label class="col-sm-3 control-label">Seleccione paciente</label>
 							<div class="col-sm-5">
 								<select class="populate placeholder" name="country" id="s2_country">
-									<option value="">-- Select a country --</option>
+									<option value="">-- Seleccione paciente --</option>
 									<option value="fr">France</option>
 									<option value="de">Germany</option>
 									<option value="it">Italy</option>
@@ -140,36 +146,140 @@
 		</div>
 	</div>
 	
+	<div class="roq">
+		<div class="col-xs-12">
+			<div class="box">
+				<div class="box-header">
+					<div class="box-name">
+						<i class="fa fa-location-arrow"></i>
+						<span>Lista de parientes</span>
+					</div>
+					<div class="box-icons">
+						<a class="collapse-link"> <i class="fa fa-chevron-up"></i>
+						</a> <a class="expand-link"> <i class="fa fa-expand"></i>
+						</a> <a class="close-link"> <i class="fa fa-times"></i>
+						</a>
+					</div>
+					<div class="no move"></div>
+				</div>
+				<div class="box-content no-padding">
+				<div class="row padding-opc">
+					<div class="col-md-12">
+						<div class="col-md-12 col-xs-12 col-sm-12 agregar">
+						<a class="ajax-link pull-right " id="btn-agrega-abrir" href="#" title="Nuevo Registro">
+							<i class="fa fa-plus-circle fa-2x"></i>
+						</a>
+						</div>
+					</div>
+				</div>
+				<table class="table table-hover table-heading table-datatable" id="datatable-1">
+					<thead>
+						<tr>
+							<th>Codigo de pariente</th>
+							<th>Primer nombre</th>
+							<th>Segundo nombre</th>
+							<th>Primer apellido</th>
+							<th>Segundo apellido</th>
+							<th>Parentesco</th>
+							<th>Tutor</th>
+							<th>Paciente</th>
+						</tr>
+					</thead>
+					
+					<tbody>
+					<%
+						DtPariente dtp = new DtPariente();
+						ArrayList<Pariente> listaPariente = new ArrayList<Pariente>();
+						listaPariente=dtp.listaPariente();
+						
+						for(Pariente a : listaPariente)
+						{
+					
+					%>
+					
+					<tr>
+						<td><%=a.getParienteId() %></td>
+						<td><%=a.getNombre1() %></td>
+						<td><%=a.getNombre2() %></td>
+						<td><%=a.getApellido1() %></td>
+						<td><%=a.getApellido2() %></td>
+						<td><%=a.getParentescoId() %></td>
+						<td><%=a.getTutor() %></td>
+						<td><%=a.getParienteId() %></td>
+					</tr>
+					<% } %>
+					
+					</tbody>
+					<tfoot>
+						<tr>
+							<th>Codigo de pariente</th>
+							<th>Primer nombre</th>
+							<th>Segundo nombre</th>
+							<th>Primer apellido</th>
+							<th>Segundo apellido</th>
+							<th>Parentesco</th>
+							<th>Tutor</th>
+							<th>Paciente</th>
+						</tr>
+					</tfoot>
+					
+				</table>
+				</div>
+			</div>
+		</div>
+	</div>
+	
 	
 	
 	
 	<script type="text/javascript">
-// Run Select2 plugin on elements
-function DemoSelect2(){
-	$('#s2_with_tag').select2({placeholder: "Select estadovida"});
-	$('#s2_country').select2();
-}
-// Run timepicker
-function DemoTimePicker(){
-	$('#input_time').timepicker({setDate: new Date()});
-}
-$(document).ready(function() {
-	// Create Wysiwig editor for textare
-	TinyMCEStart('#wysiwig_simple', null);
-	TinyMCEStart('#wysiwig_full', 'extreme');
-	// Add slider for change test input length
-	FormLayoutExampleInputLength($( ".slider-style" ));
-	// Initialize datepicker
-	$('#input_date').datepicker({setDate: new Date()});
-	// Load Timepicker plugin
-	LoadTimePickerScript(DemoTimePicker);
-	// Add tooltip to form-controls
-	$('.form-control').tooltip();
-	LoadSelect2Script(DemoSelect2);
-	// Load example of form validation
-	LoadBootstrapValidatorScript(DemoFormValidator);
-	// Add drag-n-drop feature to boxes
-	WinMove();
-});
+/////////////////////////////DATATABLES PLUGIN CON 3 VARIANTES DE CONFIGURACIONES/////////////////////////////
+	function AllTables() 
+	{
+		TestTable1();
+		TestTable2();
+		TestTable3();
+		LoadSelect2Script(MakeSelect2);
+	}
+/////////////////////////////CONTROLAR LA BUSQUEDA EN LA TABLA CARGADA/////////////////////////////
+ 	function MakeSelect2() 
+ 	{
+ 		$('select').select2();
+ 		$('.dataTables_filter').each(
+ 			function()
+ 			{
+ 				$(this).find('label input[type=text]').attr('placeholder','Buscar');
+ 			});
+ 	}
+/////////////////////////////CONTROLAR EL EVENTO FADEIN DE LA VENTANA EDITAR/////////////////////////////
+ 	function editOrDeleteCustomer(event) 
+ 	{
+ 	    var link = jQuery(event.currentTarget);
+ 	    var url = link.attr('href');
+ 	    jQuery.get(url, function(data) {
+ 	       $('#frm-edita').fadeIn();
+ 	    });
+ 	}
+// Add Drag-n-Drop feature
+	$(document).ready(function() {
+		$('#frm-agrega').hide();
+		// Initialize datepicker
+		$('#input_date').datepicker({setDate: new Date()});
+/////////////////////////////LLAMAR A LA FUNCION QUE CARGA LOS REGISTROS DE LA TABLA/////////////////////////////
+		LoadDataTablesScripts(AllTables);
+/////////////////////////////ESTILO PARA LOS TOOLTIP/////////////////////////////
+		$('.form-control').tooltip();
+/////////////////////////////CONTROLAR EL FORMULARIO AGREGAR Y CERRAR FORMULARIO EDITAR/////////////////////////////
+		$('#btn-agrega-abrir').click(function() 
+		{
+        	$('#frm-agrega').fadeIn();
+        });
+		$('#cancelar_nuevo').click(function() 
+		{
+		    $('#frm-agrega').fadeOut();
+		});
+/////////////////////////////CONTROL DE VENTANAS (PROPIO DE LA PLANTILLA)/////////////////////////////
+		WinMove();	
+	});
 </script>
 </div>

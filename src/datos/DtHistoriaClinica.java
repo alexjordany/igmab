@@ -41,7 +41,8 @@ public class DtHistoriaClinica {
 			
 			
 			
-		}catch(SQLException e){
+		}
+		catch(SQLException e){
 			System.err.println("Datos: Error"+e.getMessage());
 			
 		}
