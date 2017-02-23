@@ -165,6 +165,15 @@
 						<li><a class="ajax-link" href="ajax/charts_morris.html">Morris Charts</a></li>
 						<li><a class="ajax-link" href="ajax/charts_coindesk.html">CoinDesk realtime</a></li>
 					</ul>
+				<li class="dropdown">
+					<a href="#" class="dropdown-toggle">
+						<i class="fa fa-bar-chart-o"></i>
+						<span class="hidden-xs">Gestión Consulta</span>
+					</a>
+					<ul class="dropdown-menu">
+						<li><a class="ajax-link" href="ajax/consulta.jsp">Registrar consulta</a></li>
+					
+					</ul>
 				</li>
 				<li class="dropdown">
 					<a href="#" class="dropdown-toggle">
@@ -184,6 +193,7 @@
 					</a>
 					<ul class="dropdown-menu">
 						<li><a class="ajax-link" href="ajax/paciente.jsp">Agregar paciente</a></li>
+						<li><a class="ajax-link" href="ajax/tipo.jsp">Tipo</a></li> <!--Catalogo tipo-->
 					</ul>
 				</li>
 				<li class="dropdown">
