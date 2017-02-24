@@ -156,6 +156,17 @@
 				<li class="dropdown">
 					<a href="#" class="dropdown-toggle">
 						<i class="fa fa-bar-chart-o"></i>
+						<span class="hidden-xs">Asistencia</span>
+					</a>
+					<ul class="dropdown-menu">
+						<li><a class="ajax-link" href="ajax/Asistencia.jsp">Añadir Asistencia</a></li>
+						<li><a class="ajax-link" href="ajax/HistorialAsistencia.jsp">Ver Asistencias</a></li>
+						
+					</ul>
+				</li>
+				<li class="dropdown">
+					<a href="#" class="dropdown-toggle">
+						<i class="fa fa-bar-chart-o"></i>
 						<span class="hidden-xs">Gestión Pariente</span>
 					</a>
 					<ul class="dropdown-menu">
