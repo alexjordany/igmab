@@ -36,28 +36,30 @@ public class DtParentesco {
 	}
 	
 	////////Método para guardar/////
-	public boolean guardarParentesco(Parentesco p){
+	public boolean guardarParentesco(Parentesco p)
+	{
 		int x= 0;
 		boolean g = false;
 	
 		try{
-			String SQL = ("INSERT INTO igmab.Parentesco(Parentesco) "
-					+ "VALUES (?)");
+			String SQL = ("INSERT INTO igmab.parentesco (Parentesco) VALUES (?);");
 	
 			Connection cn = Conexion.getConnection();
 			PreparedStatement s = cn.prepareStatement(SQL);
 	
 			s.setString(1, p.getParentesco());
 			x = s.executeUpdate();
+			
 			g= x>0;
 	
 			s.close();
 			cn.close();
 		
-		}catch(Exception e){
+		}
+		catch(Exception e)
+		{
 			e.printStackTrace();
 			System.out.println("Datos: Error al guardar el parentesco");
-		
 		}
 		return g;
 	

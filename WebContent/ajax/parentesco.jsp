@@ -15,9 +15,7 @@
 	<div class="col-xs-12 col-sm-12">
 		<div id="frm-agrega" class="box">
 			<div class="box-header">
-				<div class="box-name">
-					<i class="fa fa-location-arrow"></i> <span>Agregar Parentesco</span>
-				</div>
+				
 				<div class="box-icons">
 					<a class="collapse-link"> <i class="fa fa-chevron-up"></i>
 					</a> <a class="expand-link"> <i class="fa fa-expand"></i>
@@ -28,7 +26,7 @@
 			</div>
 			<div class="box-content no-padding">
 				<div class="row">
-					<form class="form-horizontal" method="post"	action="./SlParentesco">
+<!-- 					<form class="form-horizontal" method="post"	action="./#"> -->
 						<div class="col-sm-6">
 							<h5 class="page-header">Datos</h5>
 							<div class="form-group">
@@ -47,18 +45,22 @@
 							<h5 class="page-header">Acciones</h5>
 							<div class="form-group">
 								<div id="cancelar_nuevo" class="col-sm-6 text-center">
-									<button class="action" type="reset" title="Cancelar">
-										<i class="fa fa-times fa-2x"> </i>
+									<button class="ajax-link action" type="reset" title="Cancelar">
+										Cancelar
 									</button>
 								</div>
 								<div class="col-sm-6 text-center">
-									<button class="action" type="submit" title="Guardar Registro">
-										<i class="fa fa-floppy-o fa-2x"> </i>
+<!-- 									<button class="ajax-link action" onClick="guardarParentesco();" title="Guardar"> -->
+<!-- 										Guardar -->
+<!-- 									</button> -->
+									<button class="ajax-link action" onClick="enviarMensaje();" title="Guardar">
+										Guardar
 									</button>
 								</div>
 							</div>
+							
 						</div>
-					</form>
+<!-- 					</form> -->
 				</div>
 			</div>
 		</div>
@@ -78,6 +80,9 @@
 					</a> <a class="close-link"> <i class="fa fa-times"></i>
 					</a>
 				</div>
+				<div class="box-name">
+					<i class="fa fa-location-arrow"></i> <span>Agregar Parentesco</span>
+				</div>
 				<div class="no-move"></div>
 			</div>
 			<div class="box-content no-padding">
@@ -91,11 +96,10 @@
 						
 					</div>
 				</div>
-				<table class="table table-hover table-heading table-datatable"
-					id="datatable-1">
+				<table class="table table-hover table-heading table-datatable" id="datatable-1">
 					<thead>
 						<tr>
-							<th>Parentesco</th>
+							<th>Tipo de Parentesco</th>
 						</tr>
 					</thead>
 					<tbody>
@@ -119,7 +123,7 @@
 					</tbody>
 					<tfoot>
 						<tr>
-							<th>Parentesco</th>
+							<th>Tipo de Parentesco</th>
 						</tr>
 					</tfoot>
 				</table>
@@ -128,6 +132,107 @@
 	</div>
 </div>
 <script type="text/javascript">
+
+/////////////////////////////FUNCIONES DEL WEBSOCKET/////////////////////////////
+	var wsUri = "ws://localhost:8080/IGMAB/serverendpointigmab";
+	var websocket = new WebSocket(wsUri); //creamos el socket
+
+	websocket.onopen = function(evt) 
+	{ //manejamos los eventos...
+    	System.out.println("Conectado...");
+	};
+
+	websocket.onmessage = function(evt) 
+	{ 	// cuando se recibe un mensaje
+		//alert("Hubo cambio en la base de datos. Actualiza la página para verlos");
+    	//log("Mensaje recibido:" + evt.data);
+		refrescar();
+		
+	};
+
+	websocket.onerror = function(evt) 
+	{
+    	System.out.println("oho!.. error:" + evt.data);
+	};
+	
+	function enviarMensaje()
+	{
+		guardarParentesco();
+		websocket.send("Guardado");
+		
+	}
+	
+	function refrescar()
+	{
+		var f = "";
+		var table = $('#datatable-1').DataTable();
+		
+		$.ajax
+		({
+			url: "SlParentescoAjaxRefrescar",
+			type: "post",
+			datatype: 'html',
+//			data: {},
+			success: function(data)
+			{
+				$('#datatable-1').html(data);
+				$('#datatable-1').DataTable().ajax.reload();
+//				$('#datatable-1').dataTable().fnDestroy();
+				AllTables();
+				$('#datatable-1').addClass("dataTables_wrapper form-inline");
+				
+				
+// 				LoadDataTablesScripts(AllTables);
+// 				$('#tbl_Actor').dataTable({ 
+// 					"aaData": orgContent,
+// 		            "bLengthChange": true //used to hide the property  
+					
+// 				});
+			}
+			
+		});
+		alert("REFRESCADO");
+// 		$('#datatable-1').dataTable().fnDestroy();
+// 		AllTables();
+// 		$('#datatable-1').addClass("dataTables_wrapper form-inline");
+	}
+	
+	function guardarParentesco()
+	{
+		var fparentesco ="";
+		
+		fparentesco = $("#parentesco").val();
+		
+		$.ajax
+		({
+			url: "SlParentescoAjax",
+			type: "post",
+			datatype: 'html',
+			data: {'fparentesco' :fparentesco},
+			success: function(data)
+			{
+				$('#datatable-1').html(data);
+				$('#datatable-1').DataTable().ajax.reload();
+//				$('#datatable-1').dataTable().fnDestroy();
+				AllTables();
+				$('#datatable-1').addClass("dataTables_wrapper form-inline");
+				
+// 				LoadDataTablesScripts(AllTables);
+// 				$('#tbl_Actor').dataTable({ 
+// 					"aaData": orgContent,
+// 		            "bLengthChange": true //used to hide the property  
+					
+// 				});
+			}
+			
+		});
+		
+	}
+	
+
+
+
+
 /////////////////////////////DATATABLES PLUGIN CON 3 VARIANTES DE CONFIGURACIONES/////////////////////////////
 	function AllTables() 
 	{
@@ -157,7 +262,7 @@
  	}
 // Add Drag-n-Drop feature
 	$(document).ready(function() {
-		$('#frm-agrega').hide();
+// 		$('#frm-agrega').hide();
 		// Initialize datepicker
 		$('#input_date').datepicker({setDate: new Date()});
 /////////////////////////////LLAMAR A LA FUNCION QUE CARGA LOS REGISTROS DE LA TABLA/////////////////////////////
