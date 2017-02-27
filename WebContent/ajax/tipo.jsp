@@ -1,16 +1,18 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <div class="row">
 	<div id="breadcrumb" class="col-md-12">
 		<ol class="breadcrumb">
 			<li><a href="index.html">Inicio</a></li>
 			<li><a href="#">Seleccionar tipo</a></li>
-			<li><a href="#">Descripci髇 general con respecto</a></li>
+			<li><a href="#">Descripci贸n general con respecto</a></li>
 		</ol>
 	</div>
 </div>
 <div class="box-content">
-				<h3 class="page-header">Descripci髇 general con respecto</h3>
+				<h3 class="page-header">Descripci贸n general con respecto</h3>
 				<h4>a) Su infancia y adolescencia</h4>
-				<h5>Se馻le cuales de las siguientes caracter韘ticas pueden aplicarse a su infancia/adolescencia: </h5>
+				<h5>Se帽ale cuales de las siguientes caracter铆sticas pueden aplicarse a su infancia/adolescencia: </h5>
 				<div class="row form-group">
 					<div class="col-sm-4">
 						<div class="checkbox">
@@ -61,7 +63,7 @@
 						</div>
 						<div class="checkbox">
 							<label>
-								<input type="checkbox"> Problemas econ髆icos
+								<input type="checkbox"> Problemas econ贸micos
 								<i class="fa fa-square-o"></i>
 							</label>
 						</div>
@@ -107,7 +109,7 @@
 						</div>
 						<div class="checkbox">
 							<label>
-								<input type="checkbox"> Trastornos de alimentaci髇
+								<input type="checkbox"> Trastornos de alimentaci贸n
 								<i class="fa fa-square-o"></i>
 							</label>
 						</div>
@@ -120,8 +122,8 @@
 					</div>
 				</div>
 					<div class="box-content">
-				<h4 class="page-header">b) Sensaciones f韘icas</h4>
-				<h5>Se馻le cuales de las siguientes caracter韘ticas pueden aplicarse a su infancia/adolescencia: </h5>
+				<h4 class="page-header">b) Sensaciones f铆sicas</h4>
+				<h5>Se帽ale cuales de las siguientes caracter铆sticas pueden aplicarse a su infancia/adolescencia: </h5>
 				<div class="row form-group">
 					<div class="col-sm-4">
 						<div class="checkbox">
@@ -181,7 +183,7 @@
 					</div>
 					<div class=	"checkbox">
 							<label>
-								<input type="checkbox"> Problemas cut醤eos
+								<input type="checkbox"> Problemas cut谩neos
 								<i class="fa fa-square-o"></i>
 							</label>
 						</div>
@@ -195,7 +197,7 @@
 					</div>
 					<div class=	"checkbox">
 							<label>
-								<input type="checkbox"> Sudoraci髇 excesiva
+								<input type="checkbox"> Sudoraci贸n excesiva
 								<i class="fa fa-square-o"></i>
 							</label>
 						</div>
@@ -216,7 +218,7 @@
 						</div>
 					</div>	<div class="checkbox">
 							<label>
-								<input type="checkbox"> Tensi髇
+								<input type="checkbox"> Tensi贸n
 								<i class="fa fa-square-o"></i>
 							</label>
 						</div>
@@ -272,7 +274,7 @@
 					</div>
 					<div class="checkbox">
 							<label>
-								<input type="checkbox"> Problemas de la visi髇
+								<input type="checkbox"> Problemas de la visi贸n
 								<i class="fa fa-square-o"></i>
 							</label>
 						</div>
@@ -340,7 +342,7 @@
 						</div>
 						<div class="checkbox">
 							<label>
-								<input type="checkbox"> Problemas de o韉o
+								<input type="checkbox"> Problemas de o铆do
 								<i class="fa fa-square-o"></i>
 							</label>
 						</div>
@@ -353,7 +355,7 @@
 				
 							<div class="box-content">
 				<h4 class="page-header">c) Pensamientos</h4>
-				<h5>Se馻le cuales de las siguientes caracter韘ticas pueden aplicarse a su infancia/adolescencia: </h5>
+				<h5>Se帽ale cuales de las siguientes caracter铆sticas pueden aplicarse a su infancia/adolescencia: </h5>
 				<div class="row form-group">
 					<div class="col-sm-4">
 						<div class="checkbox">
@@ -398,7 +400,7 @@
 					</div>
 									<div class="checkbox">
 							<label>
-								<input type="checkbox"> Est鷓ido
+								<input type="checkbox"> Est煤pido
 								<i class="fa fa-square-o"></i>
 							</label>
 						</div>
@@ -501,7 +503,7 @@
 						</div>
 						<div class="checkbox">
 							<label>
-								<input type="checkbox"> In鷗il
+								<input type="checkbox"> In煤til
 								<i class="fa fa-square-o"></i>
 							</label>
 						</div>

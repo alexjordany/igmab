@@ -155,7 +155,7 @@
 				</li>
 				<li class="dropdown">
 					<a href="#" class="dropdown-toggle">
-						<i class="fa fa-bar-chart-o"></i>
+						<i class="fa fa-check-square-o"></i>
 						<span class="hidden-xs">Asistencia</span>
 					</a>
 					<ul class="dropdown-menu">
@@ -166,7 +166,7 @@
 				</li>
 				<li class="dropdown">
 					<a href="#" class="dropdown-toggle">
-						<i class="fa fa-bar-chart-o"></i>
+						<i class="fa fa-heart"></i>
 						<span class="hidden-xs">Gestión Pariente</span>
 					</a>
 					<ul class="dropdown-menu">
@@ -178,7 +178,7 @@
 					</ul>
 				<li class="dropdown">
 					<a href="#" class="dropdown-toggle">
-						<i class="fa fa-bar-chart-o"></i>
+						<i class="fa fa-pencil"></i>
 						<span class="hidden-xs">Gestión Consulta</span>
 					</a>
 					<ul class="dropdown-menu">
@@ -188,7 +188,7 @@
 				</li>
 				<li class="dropdown">
 					<a href="#" class="dropdown-toggle">
-						<i class="fa fa-bar-chart-o"></i>
+						<i class="fa fa-user-md"></i>
 						<span class="hidden-xs">Gestión Psicologo</span>
 					</a>
 					<ul class="dropdown-menu">
@@ -199,7 +199,7 @@
 				
 				<li class="dropdown">
 					<a href="#" class="dropdown-toggle">
-						<i class="fa fa-bar-chart-o"></i>
+						<i class="fa fa-pagelines"></i>
 						<span class="hidden-xs">Gestión Paciente</span>
 					</a>
 					<ul class="dropdown-menu">
@@ -221,7 +221,7 @@
 				</li>
 				<li class="dropdown">
 					<a href="#" class="dropdown-toggle">
-						<i class="fa fa-bar-chart-o"></i>
+						<i class="fa fa-users"></i>
 						<span class="hidden-xs">Gestión Parentesco</span>
 					</a>
 					<ul class="dropdown-menu">
