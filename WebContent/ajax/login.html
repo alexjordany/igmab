@@ -1,49 +1,89 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="utf-8">
-		<title>IGMAB</title>
-		<meta name="description" content="description">
-		<meta name="author" content="Evgeniya">
-		<meta name="keyword" content="keywords">
-		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<link href="../plugins/bootstrap/bootstrap.css" rel="stylesheet">
-		<link href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
-		<link href='http://fonts.googleapis.com/css?family=Righteous' rel='stylesheet' type='text/css'>
-		<link href="../css/style.css" rel="stylesheet">
-		<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
-		<!--[if lt IE 9]>
+<head>
+<meta charset="utf-8">
+<title>IGMAB</title>
+<meta name="description" content="description">
+<meta name="author" content="Evgeniya">
+<meta name="keyword" content="keywords">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link href="../plugins/bootstrap/bootstrap.css" rel="stylesheet">
+<link
+	href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css"
+	rel="stylesheet">
+<link href='http://fonts.googleapis.com/css?family=Righteous'
+	rel='stylesheet' type='text/css'>
+<link href="../css/style.css" rel="stylesheet">
+<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+<!--[if lt IE 9]>
 				<script src="http://getbootstrap.com/docs-assets/js/html5shiv.js"></script>
 				<script src="http://getbootstrap.com/docs-assets/js/respond.min.js"></script>
 		<![endif]-->
-	</head>
+
+</head>
 <body>
-<div class="container-fluid">
-	<div id="page-login" class="row">
-		<div class="col-xs-12 col-md-4 col-md-offset-4 col-sm-6 col-sm-offset-3">
-			<div class="text-right">
-				<a href="registro_usuarios.html" class="txt-default">¿Necesitas una cuenta?</a>
-			</div>
-			<div class="box">
-				<div class="box-content">
-					<div class="text-center">
-						<h3 class="page-header">IGMAB Página de Registro</h3>
-					</div>
-					<div class="form-group">
-						<label class="control-label">Usuario</label>
-						<input type="text" class="form-control" name="username" />
-					</div>
-					<div class="form-group">
-						<label class="control-label">Contraseña</label>
-						<input type="password" class="form-control" name="password" />
-					</div>
-					<div class="text-center">
-						<a href="../index.html" class="btn btn-primary">Entrar</a>
+	<div class="container-fluid">
+		<div id="page-login" class="row">
+			<div
+				class="col-xs-12 col-md-4 col-md-offset-4 col-sm-6 col-sm-offset-3">
+				<div class="text-right">
+					<a href="registro_usuarios.html" class="txt-default">¿Necesitas
+						una cuenta?</a>
+				</div>
+				<div class="box">
+					<div class="box-content">
+						<div class="text-center">
+							<h3 class="page-header">IGMAB Página de Login</h3>
+						</div>
+						<div class="form-group">
+							<label class="control-label">Usuario</label> <input type="text"
+								class="form-control" name="username" />
+						</div>
+						<div class="form-group">
+							<label class="control-label">Contraseña</label> <input
+								type="password" class="form-control" name="password" />
+						</div>
+
+						<div class="form-group">
+							<label class="col-sm-2 control-label">Rol</label>
+							<div class="col-sm-2">
+								<select id="s2_with_tag" multiple="multiple"
+									class="populate placeholder">
+									<option>Director/a</option>
+									<option>Psicólogo</option>
+									<option>Secretaria</option>
+									<option>Mantenimiento</option>
+								</select>
+							</div>
+
+						</div>
+
+						<div class="text-center">
+							<a href="../index.jsp" class="btn btn-primary">Entrar</a>
+						</div>
 					</div>
 				</div>
 			</div>
 		</div>
 	</div>
-</div>
+
+	<script src="plugins/jquery/jquery-2.1.0.min.js"></script>
+	<script src="plugins/jquery-ui/jquery-ui.min.js"></script>
+	<script type="text/javascript">
+		// Run Select2 plugin on elements
+		function DemoSelect2() {
+			$('#s2_with_tag').select2({
+				placeholder : "Rol"
+			});
+		}
+
+		$(document).ready(function() {
+			LoadSelect2Script(DemoSelect2);
+			// Load example of form validation
+			LoadBootstrapValidatorScript(DemoFormValidator);
+			// Add drag-n-drop feature to boxes
+			WinMove();
+		});
+	</script>
 </body>
 </html>

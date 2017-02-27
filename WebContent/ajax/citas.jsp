@@ -49,7 +49,7 @@
 						<label class="col-sm-2 control-label">Número de Sesión</label>
 						<div class="col-sm-2">
 							<input type="text" class="form-control" name=numSesion
-								placeholder="Número de Sesión" data-toggle="tooltip"
+								placeholder="# de Sesión" data-toggle="tooltip"
 								data-placement="bottom" title="Campo requerido" required />
 						</div>
 						<!-- 						<label class="col-sm-2 control-label">Asistencia del Paciente</label> -->
