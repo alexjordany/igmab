@@ -50,7 +50,7 @@ public class DTPsicologo {
 			return listaPsicologo;
 		}
 
-		public void guardarActor(Psicologo p)
+		public void guardarPsicolgo(Psicologo p)
 		{
 //			int x = 0;
 //			boolean g = false;

@@ -55,6 +55,18 @@ public class Psicologo {
 	 * Id del usuario que modifica el registro.
 	 */
 	private int usuarioModificacion;
+	private int PsicologoID;
+	
+	public int getPsicologoID() {
+		return PsicologoID;
+	}
+
+
+	public void setPsicologoID(int psicologoID) {
+		PsicologoID = psicologoID;
+	}
+
+
 	public Asistencia m_Asistencia;
 	public Consulta m_Consulta;
 

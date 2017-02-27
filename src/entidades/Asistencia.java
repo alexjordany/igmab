@@ -25,9 +25,27 @@ public class Asistencia {
 	 * Hora en que el psicólogo termina de atender.
 	 */
 	private Date horaSalida;
-
+	private int AsistenciaId;
+    private int PsicologoID;
 	public Asistencia(){
 
+	}
+
+	
+    public int getAsistenciaId() {
+		return AsistenciaId;
+	}
+
+	public void setAsistenciaId(int asistenciaId) {
+		AsistenciaId = asistenciaId;
+	}
+
+	public int getPsicologoID() {
+		return PsicologoID;
+	}
+
+	public void setPsicologoID(int psicologoID) {
+		PsicologoID = psicologoID;
 	}
 
 	public Date getFecha() {
