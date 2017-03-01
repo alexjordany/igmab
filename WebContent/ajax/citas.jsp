@@ -32,15 +32,15 @@
 						<label class="col-sm-2 control-label">Seleccione un
 							paciente</label>
 						<div class="col-sm-5">
-							<select id="s2_with_tag" multiple="multiple" name="pacienteID"
-								id="pacienteID" class="populate placeholder">
-								<option>Harold Morales</option>
-								<option>Alex Parrales</option>
-								<option>Carlos Robles</option>
-								<option>Moisés Solís</option>
-								<option>Julissa Toruño</option>
-								<option>Manuel Tórrez</option>
-								<option>Andrés Valiente</option>
+							<select class="populate placeholder" id="s2_paciente" name="pacienteID">
+								<option value="">-- Seleccione paciente --</option>
+								<option value="1">Harold Morales</option>
+								<option value="2">Alex Parrales</option>
+								<option value="3">Carlos Robles</option>
+								<option value="4">Moisés Solís</option>
+								<option value="5">Julissa Toruño</option>
+								<option value="6">Manuel Tórrez</option>
+								<option value="7">Andrés Valiente</option>
 							</select>
 						</div>
 
@@ -53,15 +53,6 @@
 								id="numSesion" placeholder="# de Sesión" data-toggle="tooltip"
 								data-placement="bottom" title="Campo requerido" required />
 						</div>
-						<!-- 						<label class="col-sm-2 control-label">Asistencia del Paciente</label> -->
-						<!-- 						<div class="col-sm-4"> -->
-						<!-- 							<select class="populate placeholder" name="asistencia" -->
-						<!-- 									id="s2_asistencia"> -->
-						<!-- 									<option value="">-- Seleccione una opción --</option> -->
-						<!-- 									<option value="1">Sí asistió</option> -->
-						<!-- 									<option value="0">No asistió</option> -->
-						<!-- 								</select> -->
-						<!-- 						</div> -->
 					</div>
 					<div class="form-group has-error has-feedback">
 						<label class="col-sm-2 control-label">Fecha y hora de la
@@ -298,20 +289,15 @@
 		});
 	}
 
-	// Run Select2 plugin on elements
-	function DemoSelect2() {
-		$('#s2_with_tag').select2({
-			placeholder : "Seleccione un paciente"
-		});
-		$('#s2_asistencia').select2();
-	}
 	// Run timepicker
 	function TimePicker() {
 		$('#input_time').timepicker({
 			setDate : new Date()
 		});
 	}
+	
 	$(document).ready(function() {
+		$('#frm-agrega').hide();
 		// Initialize datepicker
 		$('#input_date').datepicker({
 			setDate : new Date()
