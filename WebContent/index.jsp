@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=utf-8"
+    pageEncoding="utf-8"%>
 <!DOCTYPE html>
 <html lang="en">
 	<head>
@@ -159,7 +159,7 @@
 						<span class="hidden-xs">Asistencia</span>
 					</a>
 					<ul class="dropdown-menu">
-						<li><a class="ajax-link" href="ajax/Asistencia.jsp">A馻dir Asistencia</a></li>
+						<li><a class="ajax-link" href="ajax/Asistencia.jsp">A帽adir Asistencia</a></li>
 						<li><a class="ajax-link" href="ajax/HistorialAsistencia.jsp">Ver Asistencias</a></li>
 						
 					</ul>
@@ -167,7 +167,7 @@
 				<li class="dropdown">
 					<a href="#" class="dropdown-toggle">
 						<i class="fa fa-heart"></i>
-						<span class="hidden-xs">Gesti髇 Pariente</span>
+						<span class="hidden-xs">Gesti贸n Pariente</span>
 					</a>
 					<ul class="dropdown-menu">
 						<li><a class="ajax-link" href="ajax/Pariente.jsp">Agregar pariente</a></li>
@@ -179,7 +179,7 @@
 				<li class="dropdown">
 					<a href="#" class="dropdown-toggle">
 						<i class="fa fa-pencil"></i>
-						<span class="hidden-xs">Gesti髇 Consulta</span>
+						<span class="hidden-xs">Gesti贸n Consulta</span>
 					</a>
 					<ul class="dropdown-menu">
 						<li><a class="ajax-link" href="ajax/consulta.jsp">Registrar consulta</a></li>
@@ -189,7 +189,7 @@
 				<li class="dropdown">
 					<a href="#" class="dropdown-toggle">
 						<i class="fa fa-user-md"></i>
-						<span class="hidden-xs">Gesti髇 Psicologo</span>
+						<span class="hidden-xs">Gesti贸n Psicologo</span>
 					</a>
 					<ul class="dropdown-menu">
 						<li><a class="ajax-link" href="ajax/psicologo.jsp">Agregar psicologo</a></li>
@@ -200,7 +200,7 @@
 				<li class="dropdown">
 					<a href="#" class="dropdown-toggle">
 						<i class="fa fa-pagelines"></i>
-						<span class="hidden-xs">Gesti髇 Paciente</span>
+						<span class="hidden-xs">Gesti贸n Paciente</span>
 					</a>
 					<ul class="dropdown-menu">
 						<li><a class="ajax-link" href="ajax/paciente.jsp">Agregar paciente</a></li>
@@ -210,7 +210,7 @@
 				<li class="dropdown">
 					<a href="#" class="dropdown-toggle">
 						<i class="fa fa-table"></i>
-						 <span class="hidden-xs">Gesti髇 Citas</span>
+						 <span class="hidden-xs">Gesti贸n Citas</span>
 					</a>
 					<ul class="dropdown-menu">
 						<li><a class="ajax-link" href="ajax/citas.jsp">Citas</a></li>
@@ -222,7 +222,7 @@
 				<li class="dropdown">
 					<a href="#" class="dropdown-toggle">
 						<i class="fa fa-users"></i>
-						<span class="hidden-xs">Gesti髇 Parentesco</span>
+						<span class="hidden-xs">Gesti贸n Parentesco</span>
 					</a>
 					<ul class="dropdown-menu">
 						<li><a class="ajax-link" href="ajax/parentesco.jsp">Agregar parentesco</a></li>

@@ -40,38 +40,38 @@
 					<div class="form-group">
 						<label class="col-sm-2 control-label">Primer nombre</label>
 						<div class="col-sm-4">
-							<input type="text" class="form-control" placeholder="Primer nombre"data-toggle="tooltip" data-placement="bottom" title="Primer nombre">
+							<input type="text" class="form-control" placeholder="Primer nombre"data-toggle="tooltip" data-placement="bottom" id="primerNombre" name="primerNombre" title="Primer nombre">
 						</div>
 						<label class="col-sm-2 control-label">Segundo nombre</label>
 						<div class="col-sm-4">
-							<input type="text" class="form-control" placeholder="Segundo nombre"data-toggle="tooltip" data-placement="bottom" title="Segundo nombre">
+							<input type="text" class="form-control" placeholder="Segundo nombre"data-toggle="tooltip" data-placement="bottom" id="segundoNombre" name="segundoNombre" title="Segundo nombre">
 						</div>
 						<label class="col-sm-2 control-label">Primer apellido</label>
 						<div class="col-sm-4">
-							<input type="text" class="form-control" placeholder="Primer apellido"data-toggle="tooltip" data-placement="bottom" title="Primer apellido">
+							<input type="text" class="form-control" placeholder="Primer apellido"data-toggle="tooltip" data-placement="bottom" id="primerApellido" name="primerApellido" title="Primer apellido">
 						</div>
 						<label class="col-sm-2 control-label">Segundo apellido</label>
 						<div class="col-sm-4">
-							<input type="text" class="form-control" placeholder="Segundo apellido"data-toggle="tooltip" data-placement="bottom" title="Segundo apellido">
+							<input type="text" class="form-control" placeholder="Segundo apellido"data-toggle="tooltip" data-placement="bottom" id="segundoApellido" name=""segundoApellido"" title="Segundo apellido">
 						</div>
 					</div>
 					<div class="form-group has-success has-feedback">
 					<label class="col-sm-2 control-label">Ocupacion</label>
 						<div class="col-sm-4">
-							<input type="text" class="form-control" placeholder="Ocupacion">
+							<input type="text" class="form-control" placeholder="Ocupacion" id="ocupacion" name="ocupacion">
 						</div>
 						<label class="col-sm-2 control-label">Lugar de trabajo</label>
 						<div class="col-sm-4">
-							<input type="text" class="form-control" placeholder="Lugar de trabajo">
+							<input type="text" class="form-control" placeholder="Lugar de trabajo" id="lugarTrabajo" name="lugarTrabajo">
 						</div>
 						<label class="col-sm-2 control-label">Cargo</label>
 						<div class="col-sm-3">
-							<input type="text" class="form-control" placeholder="Cargo">
+							<input type="text" class="form-control" placeholder="Cargo" id="cargo" name="cargo">
 							<span class="fa fa-check-square-o txt-success form-control-feedback"></span>
 						</div>
 						<label class="col-sm-2 control-label">Salario</label>
 						<div class="col-sm-3">
-							<input type="text" class="form-control" placeholder="Salario">
+							<input type="text" class="form-control" placeholder="Salario" id="salario" name="salario">
 						</div>
 					</div>
 					<div class="form-group has-warning has-feedback">
@@ -82,7 +82,7 @@
 						</div>
 						<label class="col-sm-2 control-label">Escolaridad</label>
 						<div class="col-sm-4">
-							<input type="text" class="form-control" placeholder="Escolaridad"data-toggle="tooltip" data-placement="bottom" title="Escolaridad">
+							<input type="text" class="form-control" placeholder="Escolaridad"data-toggle="tooltip" data-placement="bottom" title="Escolaridad" id="escolaridad" name="escolaridad">
 						</div>
 						
 						
@@ -91,14 +91,14 @@
 					<div class="form-group has-error has-feedback">
 						<label class="col-sm-2 control-label">Estado de vida</label>
 						<div class="col-sm-4">
-							<select id="s2_with_tag"  class="populate placeholder">
+							<select id="s2_estadoVida"  class="populate placeholder">
 								<option>Vivo(a)</option>
 								<option>Fallecido(a)</option>
 							</select>
 						</div>
 						<label class="col-sm-2 control-label">Causa de muerte</label>
 						<div class="col-sm-4">
-							<input type="text" class="form-control" placeholder=""data-toggle="tooltip" data-placement="bottom" title="Causa de muerte">
+							<input type="text" class="form-control" placeholder=""data-toggle="tooltip" data-placement="bottom" title="Causa de muerte" id="causaMuerte" name="causaMuerte">
 						</div>
 						
 					</div>
@@ -106,7 +106,7 @@
 					<div class="form-group">
 							<label class="col-sm-3 control-label">Seleccione paciente</label>
 							<div class="col-sm-5">
-								<select class="populate placeholder" name="country" id="s2_country">
+								<select class="populate placeholder" name="country" id="s2_pariente">
 									<option value="">-- Seleccione paciente --</option>
 									<option value="fr">France</option>
 									<option value="de">Germany</option>
@@ -120,7 +120,7 @@
 							<div class="col-sm-9 col-sm-offset-3">
 								<div class="checkbox">
 									<label>
-										<input type="checkbox"  name="tutor" /> Este pariente es tutor?
+										<input type="checkbox"  name="tutor" id="tutor" /> Este pariente es tutor?
 										<i class="fa fa-square-o small"></i>
 									</label>
 								</div>
@@ -233,6 +233,121 @@
 	
 	
 	<script type="text/javascript">
+/////////////////////////////FUNCIONES DEL WEBSOCKET/////////////////////////////
+	var wsUri ="ws://localhost:8000/IGMAB/serverendpointigmab"
+	var websocket = new WebSocket(wsUri); //creamos el socket
+	
+	websocket.onopen = function(evt) 
+	{ //manejamos los eventos...
+    	System.out.println("Conectado...");
+	};
+
+	websocket.onmessage = function(evt) 
+	{ 	// cuando se recibe un mensaje
+		//alert("Hubo cambio en la base de datos. Actualiza la página para verlos");
+    	//log("Mensaje recibido:" + evt.data);
+		refrescar();
+		
+	};
+
+	websocket.onerror = function(evt) 
+	{
+    	System.out.println("oho!.. error:" + evt.data);
+	};
+	
+	function enviarMensaje(){
+		guardarPariente();
+		websocket.send("Guardado");
+	}
+	
+	function refrescar() {
+		var f="";
+		var table = $('datatable-1').DataTable();
+		
+		$.ajax({
+			url:"SlParienteAjaxRefrescar",
+			type: "post",
+			datatype: 'htm',
+			success: function (data) {
+				$('#datatable-1').html(data);
+				$('#datatable-1').DataTable().ajax.reload();
+				AllTables();
+				$('#datatable-1').addClass("dataTables_wrapper form-inline");
+			}
+		});
+		
+	}
+	
+	function guardarPariente() {
+		var fpariente="";
+		var fprimerNombre ="";
+		var fsegundoNombre ="";
+		var fprimerApellido="";
+		var fsegundoApellido="";
+		var focupacion ="";
+		var flugarTrabajo="";
+		var fcargo ="";
+		var fsalario ="";
+		var finput_date="";
+		var fescolaridad="";
+		var festadoVida="";
+		var fcausaMuerte="";
+		var fs2_pariente="";
+		var ftutor="";
+		 
+		fprimerNombre = ("#primerNombre").val();
+		fsegundoNombre = ("#segundoNombre").val();
+		fprimerApellido = ("#primerApellido").val();
+		fsegundoApellido = ("#segundoApellido").val();
+		focupacion = ("#ocupacion").val();
+		flugarTrabajo = ("#lugarTrabajo").val();
+		fcargo = ("#cargo").val();
+		fsalario = ("#salario").val();
+		finput_date = ("#input_date").val();
+		fescolaridad = ("#escolaridad").val();
+		festadoVida = ("#estadoVida").val();
+		fcausaMuerte = ("#causaMuerte").val();
+		fs2_pariente = ("#s2_pariente").val();
+		ftutor = ("#tutor").val();
+		
+		$.ajax
+		({
+			url:"SlParienteAjax",
+			type: "post",
+			datatype: 'html',
+			data: {'fprimerNombre' : fprimerNombre,
+				'fsegundoNombre' : fsegundoNombre,
+				'fprimerApellido' : fprimerApellido,
+				'fsegundoApellido': fsegundoApellido,
+				'focupacion': focupacion,
+				'flugarTrabajo': flugarTrabajo,
+				'fcargo':fcargo,
+				'fsalario':fsalario,
+				'finput_date':finput_date,
+				'fescolaridad':fescolaridad,
+				'festadoVida':festadoVida,
+				'fcausaMuerte':fcausaMuerte,
+				'fs2_pariente': fs2_pariente,
+				'ftutor': ftutor }
+			
+				},
+			}
+			success: function(data)
+			{
+				$('#datatable-1').html(data);
+				$('#datatable-1').DataTable().ajax.reload();
+				AllTables();
+				$('#datatable-1').addClass("dataTables_wrapper form-inline");
+			}
+		});
+		
+	}
+	
+	
+	
+	
+	
+	
 /////////////////////////////DATATABLES PLUGIN CON 3 VARIANTES DE CONFIGURACIONES/////////////////////////////
 	function AllTables() 
 	{
