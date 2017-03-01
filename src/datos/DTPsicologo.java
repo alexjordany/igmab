@@ -50,9 +50,9 @@ public class DTPsicologo {
 			return listaPsicologo;
 		}
 
-		public void guardarPsicolgo(Psicologo p)
+		public boolean guardarPsicolgo(Psicologo p)
 		{
-//			int x = 0;
+			boolean x = false;
 //			boolean g = false;
 			try 
 			{
@@ -68,9 +68,11 @@ public class DTPsicologo {
 				rs.updateString("Nombre2", p.getNombre2());
 				rs.updateString("Apellido1", p.getApellido1());
 				rs.updateString("Apellido2", p.getApellido2());
+				rs.updateString("Fechacreacion", "CURRENT_TIMESTAMP");
+				rs.updateInt("Usuariocreacion", 1);
 				rs.insertRow();
 				rs.moveToCurrentRow();
-				
+				x=true;
 				s.close();
 				cn.close();
 			}
@@ -79,6 +81,7 @@ public class DTPsicologo {
 				System.err.println("ERROR GUARDAR " + e.getMessage());
 				e.printStackTrace();
 			}
+			return x;
 		}
 	}
 
