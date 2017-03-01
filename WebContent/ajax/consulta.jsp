@@ -1,3 +1,6 @@
+<%@page import="entidades.Consulta"%>
+<%@page import="java.util.*"%>
+<%@page import="datos.DtConsulta"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="Utf-8"%>
 <div class="row">
@@ -5,10 +8,11 @@
 	<div id="breadcrumb" class="col-md-12">
 		<ol class="breadcrumb">
 			<li><a href="index.html">Inicio</a></li>
+			<li><a href="#">Gestión consulta</a></li>
 			<li><a href="#">Registrar consulta</a></li>
-			<li><a href="#">Datos</a></li>
 		</ol>
 	</div>
+</div>
 </div>
 <div class="row">
 	<div class="col-xs-12 col-sm-12">
@@ -18,6 +22,9 @@
 					<i class="fa fa-search"></i>
 					<span>Registrar consulta</span>
 				</div>
+				</div>
+					</div>
+					</div>
 				<div class="box-icons">
 					<a class="collapse-link">
 						<i class="fa fa-chevron-up"></i>
@@ -63,6 +70,7 @@
 								<option>Julissa Toruño</option>
 							</select>
 						</div>
+						</div>
 					<div class="form-group has-success has-feedback">
 						<label class="col-sm-2 control-label">N° Cita</label>
 						<div class="col-sm-4">
@@ -97,7 +105,7 @@
 							</div>
 						</div>
 						</div>
-				
+				</form>
 					
 					
 					<div class="form-group">
@@ -113,3 +121,33 @@
 							<button type="submit" class="btn btn-primary">Guardar</button>
 						</div>
 					</div>
+					</div>
+					
+<script>
+
+function DemoSelect2() {
+	$('#s2_with_tag').select2({
+		placeholder : "Seleccione un paciente"
+	});
+	$('#s2_asistencia').select2();
+}
+// Run timepicker
+function TimePicker() {
+	$('#input_time').timepicker({
+		setDate : new Date()
+	});
+}
+$(document).ready(function() {
+	// Initialize datepicker
+	$('#input_date').datepicker({
+		setDate : new Date()
+	});
+	// Load Timepicker plugin
+	LoadTimePickerScript(TimePicker);
+
+	LoadDataTablesScripts(AllTables);
+	// Add tooltip to form-controls
+	$('.form-control').tooltip();
+	LoadSelect2Script(DemoSelect2);
+
+</script>
