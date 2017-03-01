@@ -32,6 +32,7 @@
 						<label class="col-sm-2 control-label">Seleccione un
 							paciente</label>
 						<div class="col-sm-5">
+<!-- 						Combo con buscar -->
 							<select class="populate placeholder" id="s2_paciente" name="pacienteID">
 								<option value="">-- Seleccione paciente --</option>
 								<option value="1">Harold Morales</option>
