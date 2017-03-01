@@ -57,7 +57,6 @@ public class SlParentescoAjax extends HttpServlet {
 		/////////////////////////// EN CASO DE
 		/////////////////////////// GUARDAR////////////////////////////////
 		case "guardar":
-			parentesco = request.getParameter("fparentesco");
 			Parentesco par = new Parentesco();
 
 			try {
@@ -164,6 +163,7 @@ public class SlParentescoAjax extends HttpServlet {
 			out += "<thead>";
 			out += "<tr>";
 			out += "<th>Tipo de parentesco</th>";
+			out += "<th>Acciones</th>";
 			out += "</tr>";
 			out += "</thead>";
 
@@ -171,6 +171,10 @@ public class SlParentescoAjax extends HttpServlet {
 			for (Parentesco enti : listaParentesco) {
 				out += "<tr>";
 				out += "<td>" + enti.getParentesco() + "</td>";
+				out +="<td>";
+				out +="<button id='btnID' value="+enti.getParentescoID()+"class='btn btn-danger ajax-link action' onClick='eliminar();'>Eliminar</button>";
+				out += "<button value="+enti.getParentescoID()+ "class='btn btn-info'>Actualizar</button>";	
+				out +="</td>";
 				out += "</tr>";
 			}
 			out += "</tbody>";
@@ -178,6 +182,7 @@ public class SlParentescoAjax extends HttpServlet {
 			out += "<tfoot>";
 			out += "<tr>";
 			out += "<th>Tipo de parentesco</th>";
+			out += "<th>Acciones</th>";
 			out += "</tr>";
 			out += "</tfoot>";
 

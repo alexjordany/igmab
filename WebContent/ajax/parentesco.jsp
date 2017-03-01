@@ -117,6 +117,12 @@
 					
 					<tr>
 						<td><%=p.getParentesco() %></td>
+						<td><button id="btnID" 
+							value=<%=p.getParentescoID()%> class='btn btn-danger ajax-link action' onClick="eliminar();"
+							  > Eliminar</button>
+							  <button type="submit"  form="" 
+							value=<%=p.getParentescoID()%> class='btn btn-info' 
+							  > Actualizar</button><td>
 					</tr>
 					
 					<% } %>
@@ -162,6 +168,11 @@
 		guardarParentesco();
 		websocket.send("Guardado");
 		
+	}
+	
+	function eliminar()
+	{
+		websocket.send("Eliminado");	
 	}
 	
 	function refrescar()
