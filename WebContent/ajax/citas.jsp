@@ -1,11 +1,12 @@
+<%@page import="entidades.Cita"%>
+<%@page import="java.util.*"%>
+<%@page import="datos.DtCita"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="Utf-8"%>
 <div class="row">
 	<div id="breadcrumb" class="col-md-12">
 		<ol class="breadcrumb">
-			<li><a href="index.jsp">Dashboard</a></li>
 			<li><a href="#">Gestion paciente</a></li>
-			<li><a href="#">Registrar paciente</a>
 		</ol>
 	</div>
 </div>
@@ -31,8 +32,8 @@
 						<label class="col-sm-2 control-label">Seleccione un
 							paciente</label>
 						<div class="col-sm-5">
-							<select id="s2_with_tag" multiple="multiple"
-								class="populate placeholder">
+							<select id="s2_with_tag" multiple="multiple" name="pacienteID"
+								id="pacienteID" class="populate placeholder">
 								<option>Harold Morales</option>
 								<option>Alex Parrales</option>
 								<option>Carlos Robles</option>
@@ -48,8 +49,8 @@
 					<div class="form-group has-success has-feedback">
 						<label class="col-sm-2 control-label">Número de Sesión</label>
 						<div class="col-sm-2">
-							<input type="text" class="form-control" name=numSesion
-								placeholder="# de Sesión" data-toggle="tooltip"
+							<input type="text" class="form-control" name="numSesion"
+								id="numSesion" placeholder="# de Sesión" data-toggle="tooltip"
 								data-placement="bottom" title="Campo requerido" required />
 						</div>
 						<!-- 						<label class="col-sm-2 control-label">Asistencia del Paciente</label> -->
@@ -67,14 +68,15 @@
 							Cita</label>
 						<div class="col-sm-2">
 							<input type="text" id="input_date" class="form-control"
-								placeholder="Date" title="Campo requerido" required> <span
+								id="fecha" name="fecha" placeholder="Date"
+								title="Campo requerido" required> <span
 								class="fa fa-calendar txt-danger form-control-feedback"></span>
 						</div>
 
 						<div class="col-sm-2">
-							<input type="text" id="input_time" class="form-control"
-								placeholder="Time" title="Campo requerido" required> <span
-								class="fa fa-clock-o txt-danger form-control-feedback"></span>
+							<input type="text" id="input_time" class="form-control" id="hora"
+								name="hora" placeholder="Time" title="Campo requerido" required>
+							<span class="fa fa-clock-o txt-danger form-control-feedback"></span>
 						</div>
 					</div>
 					<div class="clearfix"></div>
@@ -95,7 +97,207 @@
 		</div>
 	</div>
 </div>
+
+<div class="row">
+	<div class="col-xs-12">
+		<div class="box">
+			<div class="box-header">
+				<div class="box-name">
+					<i class="fa fa-location-arrow"></i> <span>Lista de
+						Parentesco</span>
+				</div>
+				<div class="box-icons">
+					<a class="collapse-link"> <i class="fa fa-chevron-up"></i>
+					</a> <a class="expand-link"> <i class="fa fa-expand"></i>
+					</a> <a class="close-link"> <i class="fa fa-times"></i>
+					</a>
+				</div>
+				<div class="box-name">
+					<i class="fa fa-location-arrow"></i> <span>Agregar
+						Parentesco</span>
+				</div>
+				<div class="no-move"></div>
+			</div>
+			<div class="box-content no-padding">
+				<div class="row padding-opc">
+					<div class="col-md-12">
+						<div class="col-md-12 col-xs-12 col-sm-12 agregar">
+							<a class="ajax-link pull-right " id="btn-agrega-abrir" href="#"
+								title="Nuevo Registro"> <i class="fa fa-plus-circle fa-2x"></i>
+							</a>
+						</div>
+
+					</div>
+				</div>
+				<table class="table table-hover table-heading table-datatable"
+					id="datatable-1">
+					<thead>
+						<tr>
+							<th>Paciente</th>
+							<th>Fecha</th>
+							<th>Hora</th>
+							<th>Sesion</th>
+						</tr>
+					</thead>
+					<tbody>
+
+						<%
+							DtCita dtc = new DtCita();
+							ArrayList<Cita> listaCita = new ArrayList<Cita>();
+							listaCita = dtc.listaCitas();
+
+							for (Cita c : listaCita) {
+						%>
+
+						<tr>
+							<td><%=c.getPacienteId()%></td>
+							<td><%=c.getFecha()%></td>
+							<td><%=c.getHora()%></td>
+							<td><%=c.getNumSesion()%></td>
+						</tr>
+
+						<%
+							}
+						%>
+
+					</tbody>
+					<tfoot>
+						<tr>
+							<th>Paciente</th>
+							<th>Fecha</th>
+							<th>Hora</th>
+							<th>Sesion</th>
+						</tr>
+					</tfoot>
+				</table>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+
+
 <script type="text/javascript">
+	/////////////////////////////FUNCIONES DEL WEBSOCKET/////////////////////////////
+	var wsUri = "ws://localhost:8080/IGMAB/serverendpointigmab";
+	var websocket = new WebSocket(wsUri); //creamos el socket
+
+	websocket.onopen = function(evt) { //manejamos los eventos...
+		System.out.println("Conectado...");
+	};
+
+	websocket.onmessage = function(evt) { // cuando se recibe un mensaje
+		//alert("Hubo cambio en la base de datos. Actualiza la página para verlos");
+		//log("Mensaje recibido:" + evt.data);
+		refrescar();
+
+	};
+
+	websocket.onerror = function(evt) {
+		System.out.println("oho!.. error:" + evt.data);
+	};
+
+	function enviarMensaje() {
+		guardarCita();
+		// 		websocket.send("Guardado");
+
+	}
+
+	function refrescar() {
+		var f = "";
+		var table = $('#datatable-1').DataTable();
+
+		$.ajax({
+			url : "SlParentescoAjaxRefrescar",
+			type : "post",
+			datatype : 'html',
+			//		data: {},
+			success : function(data) {
+				$('#datatable-1').html(data);
+				$('#datatable-1').DataTable().ajax.reload();
+				//			$('#datatable-1').dataTable().fnDestroy();
+				AllTables();
+				$('#datatable-1').addClass("dataTables_wrapper form-inline");
+
+				//				LoadDataTablesScripts(AllTables);
+				//				$('#tbl_Actor').dataTable({ 
+				//					"aaData": orgContent,
+				//		            "bLengthChange": true //used to hide the property  
+
+				//				});
+			}
+
+		});
+		alert("REFRESCADO");
+		//		$('#datatable-1').dataTable().fnDestroy();
+		//		AllTables();
+		//		$('#datatable-1').addClass("dataTables_wrapper form-inline");
+	}
+
+	function guardarCita() {
+		var fpacienteId = "", fnumSesion = "", ffecha = "", fhora = "";
+
+		fpacienteId = $("#pacienteID").val();
+		fnumSesion = $("#numSesion").val();
+		ffecha = $("#fecha").val();
+		fhora = $("#hora").val();
+
+		$.ajax({
+			url : "SlCita",
+			type : "post",
+			datatype : 'html',
+			data : {
+				'fpacienteId' : fpacienteId,
+				'fnumSesion' : fnumSesion,
+				'ffecha' : ffecha,
+				'fhora' : fhora
+			},
+			success : function(data) {
+				$('#datatable-1').html(data);
+				$('#datatable-1').DataTable().ajax.reload();
+				//			$('#datatable-1').dataTable().fnDestroy();
+				AllTables();
+				$('#datatable-1').addClass("dataTables_wrapper form-inline");
+
+				//				LoadDataTablesScripts(AllTables);
+				//				$('#tbl_Actor').dataTable({ 
+				//					"aaData": orgContent,
+				//		            "bLengthChange": true //used to hide the property  
+
+				//				});
+			}
+
+		});
+
+	}
+
+	/////////////////////////////DATATABLES PLUGIN CON 3 VARIANTES DE CONFIGURACIONES/////////////////////////////
+	function AllTables() {
+		TestTable1();
+		TestTable2();
+		TestTable3();
+		LoadSelect2Script(MakeSelect2);
+	}
+	/////////////////////////////CONTROLAR LA BUSQUEDA EN LA TABLA CARGADA/////////////////////////////
+	function MakeSelect2() {
+		$('select').select2();
+		$('.dataTables_filter').each(
+				function() {
+					$(this).find('label input[type=text]').attr('placeholder',
+							'Buscar');
+				});
+	}
+
+	/////////////////////////////CONTROLAR EL EVENTO FADEIN DE LA VENTANA EDITAR/////////////////////////////
+	function editOrDeleteCustomer(event) {
+		var link = jQuery(event.currentTarget);
+		var url = link.attr('href');
+		jQuery.get(url, function(data) {
+			$('#frm-edita').fadeIn();
+		});
+	}
+
 	// Run Select2 plugin on elements
 	function DemoSelect2() {
 		$('#s2_with_tag').select2({
@@ -116,11 +318,19 @@
 		});
 		// Load Timepicker plugin
 		LoadTimePickerScript(TimePicker);
+
+		LoadDataTablesScripts(AllTables);
 		// Add tooltip to form-controls
 		$('.form-control').tooltip();
 		LoadSelect2Script(DemoSelect2);
-		// Load example of form validation
-		LoadBootstrapValidatorScript(DemoFormValidator);
+
+		/////////////////////////////CONTROLAR EL FORMULARIO AGREGAR Y CERRAR FORMULARIO EDITAR/////////////////////////////
+		$('#btn-agrega-abrir').click(function() {
+			$('#frm-agrega').fadeIn();
+		});
+		$('#cancelar_nuevo').click(function() {
+			$('#frm-agrega').fadeOut();
+		});
 		// Add drag-n-drop feature to boxes
 		WinMove();
 	});
