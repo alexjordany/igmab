@@ -1,3 +1,6 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="Utf-8"%>
+<div class="row">
 <div class="row">
 	<div id="breadcrumb" class="col-md-12">
 		<ol class="breadcrumb">
@@ -32,15 +35,34 @@
 				<h4 class="page-header">Datos</h4>
 				<form class="form-horizontal" role="form">
 					<div class="form-group">
-						<label class="col-sm-2 control-label">N° Paciente</label>
-						<div class="col-sm-4">
-							<input type="text" class="form-control" placeholder="N° Paciente" data-toggle="tooltip" data-placement="bottom" title="Tooltip for n° paciente">
+						<label class="col-sm-2 control-label">Seleccione un
+							paciente</label>
+						<div class="col-sm-5">
+							<select id="s2_with_tag" multiple="multiple"
+								class="populate placeholder">
+								<option>Harold Morales</option>
+								<option>Alex Parrales</option>
+								<option>Carlos Robles</option>
+								<option>Moisés Solís</option>
+								<option>Manuel Tórrez</option>
+								<option>Andrés Valiente</option>
+								<option>Julissa Toruño</option>
+							</select>
 						</div>
-						<label class="col-sm-2 control-label">N° Psicólogo</label>
-						<div class="col-sm-4">
-							<input type="text" class="form-control" placeholder="N° Psicólogo" data-toggle="tooltip" data-placement="bottom" title="Tooltip for n° psicólogo">
+   								<label class="col-sm-2 control-label">Seleccione un
+							psicólogo</label>
+						<div class="col-sm-5">
+							<select id="s2_with_tag" multiple="multiple"
+								class="populate placeholder">
+								<option>Harold Morales</option>
+								<option>Alex Parrales</option>
+								<option>Carlos Robles</option>
+								<option>Moisés Solís</option>
+								<option>Manuel Tórrez</option>
+								<option>Andrés Valiente</option>
+								<option>Julissa Toruño</option>
+							</select>
 						</div>
-					</div>
 					<div class="form-group has-success has-feedback">
 						<label class="col-sm-2 control-label">N° Cita</label>
 						<div class="col-sm-4">

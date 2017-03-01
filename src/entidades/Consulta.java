@@ -10,6 +10,8 @@ import java.util.Date;
  * @created 12-Feb-2017 11:17:16 AM
  */
 public class Consulta {
+	
+	private int consultaid;
 
 	/**
 	 * Si el paciente asiste a la cita o no.

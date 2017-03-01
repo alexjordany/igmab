@@ -4,6 +4,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import java.sql.Date;
+import java.util.*;
 
 import entidades.Consulta;
 
@@ -43,14 +45,14 @@ public class DtConsulta {
 		return listaConsulta;
 	}
 	
-	public void guardarConsulta(Consulta c)
+	public boolean guardarConsulta(Consulta c)
 	{
 		int x = 0;
-		boolean g = false
+		boolean g = false;
 		
 		try 
 		{
-			String SQL = ("INSERT INTO igmab.consulta (Consulta) VALUES (?);")
+			String SQL = ("INSERT INTO igmab.consulta (Consulta) VALUES (asistencia, descripcion, fecha, fechacreacion);");
 			
 			Connection cn;
 			cn = Conexion.getConnection();
@@ -58,7 +60,8 @@ public class DtConsulta {
 			
 			ps.setInt(1, c.getAsistencia());
 			ps.setString(2, c.getDescripcion());
-			ps.setDate(3, c.getFecha());
+			ps.setDate(3, (Date) c.getFecha());
+			ps.setDate(4, (Date) c.getFechaCreacion());
 			x = ps.executeUpdate();
 			g = x>0;
 			
@@ -72,5 +75,6 @@ public class DtConsulta {
 			System.out.println("Error al guardar" + e.getMessage());
 			e.printStackTrace();
 			}
+		return g;
 	}
 }
