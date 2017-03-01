@@ -53,7 +53,7 @@
 <!-- 									<button class="ajax-link action" onClick="guardarParentesco();" title="Guardar"> -->
 <!-- 										Guardar -->
 <!-- 									</button> -->
-									<button class="ajax-link action" onClick="enviarMensaje();" title="Guardar">
+									<button class="ajax-link action" onClick="guardar();" title="Guardar">
 										Guardar
 									</button>
 								</div>
@@ -100,6 +100,7 @@
 					<thead>
 						<tr>
 							<th>Tipo de Parentesco</th>
+							<th>Acciones</th>
 						</tr>
 					</thead>
 					<tbody>
@@ -124,6 +125,7 @@
 					<tfoot>
 						<tr>
 							<th>Tipo de Parentesco</th>
+							<th>Acciones</th>
 						</tr>
 					</tfoot>
 				</table>
@@ -155,7 +157,7 @@
     	System.out.println("oho!.. error:" + evt.data);
 	};
 	
-	function enviarMensaje()
+	function guardar()
 	{
 		guardarParentesco();
 		websocket.send("Guardado");
@@ -164,43 +166,34 @@
 	
 	function refrescar()
 	{
-		var f = "";
-		var table = $('#datatable-1').DataTable();
+		var opcion = "";
+		opcion = "refrescar";
 		
 		$.ajax
 		({
-			url: "SlParentescoAjaxRefrescar",
+			url: "SlParentescoAjax",
 			type: "post",
 			datatype: 'html',
-//			data: {},
+			data: {'opcion' :opcion},
 			success: function(data)
 			{
 				$('#datatable-1').html(data);
 				$('#datatable-1').DataTable().ajax.reload();
-//				$('#datatable-1').dataTable().fnDestroy();
 				AllTables();
 				$('#datatable-1').addClass("dataTables_wrapper form-inline");
 				
-				
-// 				LoadDataTablesScripts(AllTables);
-// 				$('#tbl_Actor').dataTable({ 
-// 					"aaData": orgContent,
-// 		            "bLengthChange": true //used to hide the property  
-					
-// 				});
 			}
 			
 		});
-		alert("REFRESCADO");
-// 		$('#datatable-1').dataTable().fnDestroy();
-// 		AllTables();
-// 		$('#datatable-1').addClass("dataTables_wrapper form-inline");
+		alert('Refrescado exitosamente');
 	}
 	
 	function guardarParentesco()
 	{
 		var fparentesco ="";
+		var opcion = "";
 		
+		opcion = "guardar";
 		fparentesco = $("#parentesco").val();
 		
 		$.ajax
@@ -208,24 +201,17 @@
 			url: "SlParentescoAjax",
 			type: "post",
 			datatype: 'html',
-			data: {'fparentesco' :fparentesco},
+			data: {'fparentesco' :fparentesco, 'opcion' :opcion},
 			success: function(data)
 			{
 				$('#datatable-1').html(data);
 				$('#datatable-1').DataTable().ajax.reload();
-//				$('#datatable-1').dataTable().fnDestroy();
 				AllTables();
 				$('#datatable-1').addClass("dataTables_wrapper form-inline");
-				
-// 				LoadDataTablesScripts(AllTables);
-// 				$('#tbl_Actor').dataTable({ 
-// 					"aaData": orgContent,
-// 		            "bLengthChange": true //used to hide the property  
-					
-// 				});
 			}
 			
 		});
+		//jAlert('Guardado exitosamente', 'Acciones');
 		
 	}
 	

@@ -214,9 +214,6 @@
 					</a>
 					<ul class="dropdown-menu">
 						<li><a class="ajax-link" href="ajax/citas.jsp">Citas</a></li>
-						<li><a class="ajax-link" href="ajax/tables_simple.html">Simple Tables</a></li>
-						<li><a class="ajax-link" href="ajax/tables_datatables.html">Data Tables</a></li>
-						<li><a class="ajax-link" href="ajax/tables_beauty.html">Beauty Tables</a></li>
 					</ul>
 				</li>
 				<li class="dropdown">

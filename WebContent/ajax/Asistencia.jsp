@@ -1,6 +1,6 @@
-<%@page import="entidades.Psicologo"%>
+<%@page import="entidades.Asistencia"%>
 <%@page import="java.util.*"%>
-<%@page import="datos.DTPsicologo"%>
+<%@page import="datos.DTAsistencia"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <div class="row">
@@ -35,7 +35,7 @@
 								<label class="col-sm-6 control-label">Fecha:</label>
 								<div class="col-sm-6">
 									<input type="text" class="form-control"
-										placeholder="Fecha" data-toggle="tooltip"
+										placeholder="Date" data-toggle="tooltip"
 										data-placement="bottom" id="fecha"
 										name="fecha" title="El número de carnet es requerido"
 										 />
@@ -56,37 +56,7 @@
 										name="nombre1" title="El primer nombre es requerido"
 										required />
 								</div>
-							</div>
-							<div class="form-group">
-								<label class="col-sm-6 control-label">Segundo nombre:</label>
-								<div class="col-sm-6">
-									<input type="text" class="form-control"
-										placeholder="Segundo nombre" data-toggle="tooltip"
-										data-placement="bottom" id="nombre2"
-										name="nombre2" title="El segundo nombre es requerido"
-										required />
-								</div>
-							</div>
-							<div class="form-group">
-								<label class="col-sm-6 control-label">Primer apellido:</label>
-								<div class="col-sm-6">
-									<input type="text" class="form-control"
-										placeholder="Primer nombre" data-toggle="tooltip"
-										data-placement="bottom" id="apellido1"
-										name="apellido1" title="El primer apellido es requerido"
-										required />
-								</div>
-							</div>
-							<div class="form-group">
-								<label class="col-sm-6 control-label">Segundo apellido:</label>
-								<div class="col-sm-6">
-									<input type="text" class="form-control"
-										placeholder="Segundo apellido" data-toggle="tooltip"
-										data-placement="bottom" id="apellido2"
-										name="apellido2" title="El segundo apellido es requerido"
-										required />
-								</div>
-							</div>
+						
 
 						</div>
 						<div class="col-sm-6">
@@ -116,7 +86,7 @@
 			<div class="box-header">
 				<div class="box-name">
 					<i class="fa fa-location-arrow"></i> 
-					<span>Lista de Psicologos</span>
+					<span>Lista de Asistencia</span>
 				</div>
 				<div class="box-icons">
 					<a class="collapse-link"> <i class="fa fa-chevron-up"></i>
@@ -141,31 +111,29 @@
 					id="datatable-1">
 					<thead>
 						<tr>
-							<th>Carnet</th>
-							<th>Nombre1</th>
-							<th>Nombre2</th>
-							<th>Apellido1</th>
-							<th>Apellido2</th>
+							<th>ID-Psicologo</th>
+							<th>Fecha</th>
+							<th>Hora Entrada</th>
+							<th>Hora Salida</th>
 						</tr>
 					</thead>
 					<tbody>
 					
 					<%
 					
-						DTPsicologo dtps= new DTPsicologo();
-						ArrayList<Psicologo> listaPsicologo = new ArrayList<Psicologo>();
-						listaPsicologo=dtps.psicologos();
+						DTAsistencia dta= new DTAsistencia();
+						ArrayList<Asistencia> listaAsistencia = new ArrayList<Asistencia>();
+						listaAsistencia=dta.CargarAsistencias();
 						
-						for(Psicologo p : listaPsicologo)
+						for(Asistencia a : listaAsistencia)
 						{
 					%>
 					
 					<tr>
-						<td><%=p.getCarnet() %></td>
-						<td><%=p.getNombre1() %></td>
-						<td><%=p.getNombre2() %></td>
-						<td><%=p.getApellido1() %></td>
-						<td><%=p.getApellido2() %></td>
+						<td><%=a.getPsicologoID() %></td>
+						<td><%=a.getFecha() %></td>
+						<td><%=a.getHoraEntrada() %></td>
+						<td><%=a.getHoraSalida() %></td>
 
 					</tr>
 					
@@ -174,11 +142,10 @@
 					</tbody>
 					<tfoot>
 						<tr>
-							<th>Carnet</th>
-							<th>Nombre1</th>
-							<th>Nombre2</th>
-							<th>Apellido1</th>
-							<th>Apellido2</th>
+						    <th>ID-Psicologo</th>
+							<th>Fecha</th>
+							<th>Hora Entrada</th>
+							<th>Hora Salida</th>
 						</tr>
 					</tfoot>
 				</table>

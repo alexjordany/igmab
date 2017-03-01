@@ -181,6 +181,102 @@
 	</div>
 </div>
 <script type="text/javascript">
+
+/////////////////////////////FUNCIONES DEL WEBSOCKET/////////////////////////////
+var wsUri = "ws://localhost:8080/IGMAB/serverendpointigmab";
+var websocket = new WebSocket(wsUri); //creamos el socket
+
+websocket.onopen = function(evt) { //manejamos los eventos...
+	System.out.println("Conectado...");
+};
+
+websocket.onmessage = function(evt) { // cuando se recibe un mensaje
+	//alert("Hubo cambio en la base de datos. Actualiza la página para verlos");
+	//log("Mensaje recibido:" + evt.data);
+	refrescar();
+
+};
+
+websocket.onerror = function(evt) {
+	System.out.println("oho!.. error:" + evt.data);
+};
+
+function enviarMensaje() {
+	guardarPsicologo();
+	// 		websocket.send("Guardado");
+
+}
+
+function refrescar() {
+	var f = "";
+	var table = $('#datatable-1').DataTable();
+
+	$.ajax({
+		url : "SlPsicologo",
+		type : "post",
+		datatype : 'html',
+		//		data: {},
+		success : function(data) {
+			$('#datatable-1').html(data);
+			$('#datatable-1').DataTable().ajax.reload();
+			//			$('#datatable-1').dataTable().fnDestroy();
+			AllTables();
+			$('#datatable-1').addClass("dataTables_wrapper form-inline");
+
+			//				LoadDataTablesScripts(AllTables);
+			//				$('#tbl_Actor').dataTable({ 
+			//					"aaData": orgContent,
+			//		            "bLengthChange": true //used to hide the property  
+
+			//				});
+		}
+
+	});
+	alert("REFRESCADO");
+	//		$('#datatable-1').dataTable().fnDestroy();
+	//		AllTables();
+	//		$('#datatable-1').addClass("dataTables_wrapper form-inline");
+}
+
+function guardarPsicologo() {
+	var fnombre1 = "", fnombre2 = "", fapellido1 = "", fapellido2 = "", fcarnet="";
+
+	fnombre1 = $("#Nombre1").val();
+	fnombre2 = $("#Nombre2").val();
+	fapellido1 = $("#Apellido1").val();
+	fapellido2 = $("#Apellido2").val();
+	fcarnet= $("#Carnet").val();
+
+	$.ajax({
+		url : "SlPsicologo",
+		type : "post",
+		datatype : 'html',
+		data : {
+			'fnombre1' : fpacienteId,
+			'fnombre2' : fnumSesion,
+			'fapellido1' : ffecha,
+			'fapellido2' : fhora,
+			'fcarnert' : fcarnet
+		},
+		success : function(data) {
+			$('#datatable-1').html(data);
+			$('#datatable-1').DataTable().ajax.reload();
+			//			$('#datatable-1').dataTable().fnDestroy();
+			AllTables();
+			$('#datatable-1').addClass("dataTables_wrapper form-inline");
+
+			//				LoadDataTablesScripts(AllTables);
+			//				$('#tbl_Actor').dataTable({ 
+			//					"aaData": orgContent,
+			//		            "bLengthChange": true //used to hide the property  
+
+			//				});
+		}
+
+	});
+
+}
+
 /////////////////////////////DATATABLES PLUGIN CON 3 VARIANTES DE CONFIGURACIONES/////////////////////////////
 	function AllTables() 
 	{
