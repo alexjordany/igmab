@@ -192,43 +192,31 @@
 
 	function enviarMensaje() {
 		guardarCita();
-		// 		websocket.send("Guardado");
+		websocket.send("Guardado");
 
 	}
 
 	function refrescar() {
-		var f = "";
-		var table = $('#datatable-1').DataTable();
+		var opcion = "refrescar";
 
 		$.ajax({
-			url : "SlParentescoAjaxRefrescar",
+			url : "SlCita",
 			type : "post",
 			datatype : 'html',
-			//		data: {},
+			data: {'opcion':opcion},
 			success : function(data) {
 				$('#datatable-1').html(data);
 				$('#datatable-1').DataTable().ajax.reload();
-				//			$('#datatable-1').dataTable().fnDestroy();
 				AllTables();
 				$('#datatable-1').addClass("dataTables_wrapper form-inline");
-
-				//				LoadDataTablesScripts(AllTables);
-				//				$('#tbl_Actor').dataTable({ 
-				//					"aaData": orgContent,
-				//		            "bLengthChange": true //used to hide the property  
-
-				//				});
 			}
 
 		});
-		alert("REFRESCADO");
-		//		$('#datatable-1').dataTable().fnDestroy();
-		//		AllTables();
-		//		$('#datatable-1').addClass("dataTables_wrapper form-inline");
+		alert("Refrescado exitosamente");
 	}
 
 	function guardarCita() {
-		var fpacienteId = "", fnumSesion = "", ffecha = "", fhora = "";
+		var fpacienteId = "", fnumSesion = "", ffecha = "", fhora = "", opcion="guardar";
 
 		fpacienteId = $("#pacienteID").val();
 		fnumSesion = $("#numSesion").val();
@@ -243,21 +231,14 @@
 				'fpacienteId' : fpacienteId,
 				'fnumSesion' : fnumSesion,
 				'ffecha' : ffecha,
-				'fhora' : fhora
+				'fhora' : fhora,
+				'opcion':opcion
 			},
 			success : function(data) {
 				$('#datatable-1').html(data);
 				$('#datatable-1').DataTable().ajax.reload();
-				//			$('#datatable-1').dataTable().fnDestroy();
 				AllTables();
 				$('#datatable-1').addClass("dataTables_wrapper form-inline");
-
-				//				LoadDataTablesScripts(AllTables);
-				//				$('#tbl_Actor').dataTable({ 
-				//					"aaData": orgContent,
-				//		            "bLengthChange": true //used to hide the property  
-
-				//				});
 			}
 
 		});
@@ -300,9 +281,7 @@
 	$(document).ready(function() {
 		$('#frm-agrega').hide();
 		// Initialize datepicker
-		$('#input_date').datepicker({
-			setDate : new Date()
-		});
+		$('#input_date').datepicker({setDate : new Date()});
 		// Load Timepicker plugin
 		LoadTimePickerScript(TimePicker);
 

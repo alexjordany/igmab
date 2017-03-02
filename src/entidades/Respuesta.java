@@ -14,6 +14,9 @@ public class Respuesta {
 	 * esté en el catálogo.
 	 */
 	private String otros;
+	private int respuestaId;
+	private int pacienteId;
+	private int respuestaCatalogoID;
 	/**
 	 * Atributo que guarda si se selecciona una respuesta o no.
 	 */
@@ -46,6 +49,36 @@ public class Respuesta {
 
 	public void finalize() throws Throwable {
 
+	}
+
+
+	public int getRespuestaId() {
+		return respuestaId;
+	}
+
+
+	public void setRespuestaId(int respuestaId) {
+		this.respuestaId = respuestaId;
+	}
+
+
+	public int getPacienteId() {
+		return pacienteId;
+	}
+
+
+	public void setPacienteId(int pacienteId) {
+		this.pacienteId = pacienteId;
+	}
+
+
+	public int getRespuestaCatalogoID() {
+		return respuestaCatalogoID;
+	}
+
+
+	public void setRespuestaCatalogoID(int respuestaCatalogoID) {
+		this.respuestaCatalogoID = respuestaCatalogoID;
 	}
 
 }

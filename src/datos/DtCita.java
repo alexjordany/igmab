@@ -23,7 +23,7 @@ public class DtCita {
 			PreparedStatement ps = cn.prepareStatement(sql);
 			ResultSet rs = null;
 			rs = ps.executeQuery();
-
+			// Cambios 
 			while (rs.next()) {
 				Cita c = new Cita();
 				c.setCitaId(rs.getInt("CitaId"));

@@ -13,6 +13,8 @@ public class RespuestaCatalogo {
 	 * Una respuesta del catálogo en la ficha de admisión del paciente.
 	 */
 	private String descripcion;
+	private int respuestaCtalogoID;
+	private int tipoID;
 	private Respuesta m_Respuesta;
 	public RespuestaAbierta m_RespuestaAbierta;
 
@@ -53,6 +55,26 @@ public class RespuestaCatalogo {
 
 	public void finalize() throws Throwable {
 
+	}
+
+
+	public int getRespuestaCtalogoID() {
+		return respuestaCtalogoID;
+	}
+
+
+	public void setRespuestaCtalogoID(int respuestaCtalogoID) {
+		this.respuestaCtalogoID = respuestaCtalogoID;
+	}
+
+
+	public int getTipoID() {
+		return tipoID;
+	}
+
+
+	public void setTipoID(int tipoID) {
+		this.tipoID = tipoID;
 	}
 
 }
