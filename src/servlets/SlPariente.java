@@ -7,6 +7,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import datos.DtPariente;
+import entidades.Pariente;
+
 /**
  * Servlet implementation class SlPariente
  */
@@ -35,7 +38,18 @@ public class SlPariente extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		doGet(request, response);
+		try{
+			Pariente p = new Pariente();
+			DtPariente dtp = new DtPariente();
+			
+			p.setNombre1(request.getParameter("nombre"));
+			
+			
+		}catch (Exception e){
+			e.printStackTrace();
+			System.out.println("ERROR EN EL SERVLET: "+e.getMessage());
+
+		}
 	}
 
 }

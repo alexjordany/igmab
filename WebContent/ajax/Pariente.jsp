@@ -255,17 +255,18 @@
     	System.out.println("oho!.. error:" + evt.data);
 	};
 	
-	function enviarMensaje(){
+	function guardar() {
 		guardarPariente();
-		websocket.send("Guardado");
+		websocket.send("Guardado")
 	}
 	
+	
 	function refrescar() {
-		var f="";
-		var table = $('datatable-1').DataTable();
+		var opcion = "";
+		opcion = "refrescar";
 		
 		$.ajax({
-			url:"SlParienteAjaxRefrescar",
+			url:"SlParienteAjax",
 			type: "post",
 			datatype: 'htm',
 			success: function (data) {
